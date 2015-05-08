@@ -29,7 +29,7 @@ if (Array.isArray(execArgv) && execArgv.length > 0 && typeof execArgv[0] === 'st
     }
 }
 console.log('Forking child indexing process');
-var indexer = require('child_process').fork('./lib/db_child.js', undefined, { execArgv: execArgv });
+var indexer = require('child_process').fork(path.join(__dirname, 'db_child.js'), undefined, { execArgv: execArgv });
 
 // IMPORTANT: file watcher to load index file when ready
 chokidar.watch(convert.getIndexDir()).on('all', function(event, path) {

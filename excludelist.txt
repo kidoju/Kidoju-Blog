@@ -1,0 +1,9 @@
+\cache\
+\config\default.json
+\config\development.json
+\config\production.json
+\config\test.json
+\public\assets\
+\public\favicon.ico
+\views\home.ejs
+\views\logo.ejs

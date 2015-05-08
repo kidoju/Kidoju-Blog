@@ -1,0 +1,29 @@
+# Ignore OS files
+Desktop.ini
+$RECYCLE.BIN/
+.DS_Store
+Thumbs.db
+*.diff
+*.err
+*.log
+*.zip
+
+# Ignore Webstorm files
+.idea/
+coverage/
+
+# Ignore Node files
+node_modules/
+
+# Ignore webpack generated files
+webapp/public/assets
+
+# Ignore Grunt Files
+validation-status.json
+validation-report.json
+
+# Ignore data
+cache/
+
+# Ignore Dummy Files
+temp/

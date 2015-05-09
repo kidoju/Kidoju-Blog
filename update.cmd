@@ -10,24 +10,29 @@ REM Root files
 REM ------------------------------------------------------------
 
 REM copy all dot files
+ATTRIB -R .\.*
 COPY ..\..\Memba\Memba.Blog\.* .\ /Y
 ATTRIB +R .\.*
 
 REM TODO Coverage
 
 REM Dockerfile
+ATTRIB -R .\Dockerfile
 COPY ..\..\Memba\Memba.Blog\Dockerfile .\ /Y
 ATTRIB +R .\Dockerfile
 
 REM gruntfile.js
+ATTRIB -R .\gruntfile.js
 COPY ..\..\Memba\Memba.Blog\gruntfile.js .\ /Y
 ATTRIB +R .\gruntfile.js
 
 REM LICENSE
+ATTRIB -R .\LICENSE-GPLv3
 COPY ..\..\Memba\Memba.Blog\LICENSE-GPLv3 .\ /Y
 ATTRIB +R .\LICENSE-GPLv3
 
 REM webpack
+ATTRIB -R .\webpack.config.js
 COPY ..\..\Memba\Memba.Blog\webpack.config.js .\ /Y
 ATTRIB +R .\webpack.config.js
 

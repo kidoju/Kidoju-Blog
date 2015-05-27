@@ -35,13 +35,15 @@
             }
         },
         "webapp": {
-            "root": "http://support.kidoju.com",
-            "home": "/",
-            "hook": "/hook",
-            "feed": "/%s/index.rss",
-            "sitemap": "/%s/sitemap.xml",
-            "pages": "/%s/%s",
-            "posts": "/%s/posts/%s/%s/%s"
+            "root": "http://localhost:3000",
+            "ping": "/support/ping",
+            "public": "/support/",
+            "home": "/support/",
+            "hook": "/support/hook",
+            "feed": "/support/%s/index.rss",
+            "sitemap": "/support/%s/sitemap.xml",
+            "pages": "/support/%s/%s",
+            "posts": "/support/%s/posts/%s/%s/%s"
         }
     }
 }

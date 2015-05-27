@@ -3,8 +3,23 @@
 /*********************************************
  * Site page
  ********************************************/
-#page-wrapper {
+#search-wrapper {
     .wrapper();
+    //side groups of months, categories, authors
+    section.group {
+        margin-bottom: 40px;
+        img {
+            height: 28px;
+            width: 28px;
+            vertical-align: top;
+        }
+        div.list-group {
+            img {
+                height: 24px;
+                width: 24px;
+            }
+        }
+    }
 }
 
 /*********************************************
@@ -14,13 +29,19 @@
 // See http://getbootstrap.com/css/#responsive-utilities-print
 @media print {
     //Reposition content for hiding header, footer and toolbar
-    #page-wrapper {
+    #search-wrapper {
         position: relative;
         top: 0px;
         overflow: visible;
         //Make sure we fit page width
         .container {
             width: auto;
+            //Do not print hyperlinks after images
+            .media-left {
+                a[href]::after {
+                    content: none;
+                }
+            }
         }
     }
 }

@@ -13,7 +13,8 @@ var config = require('../config'),
     db = require('../lib/db'),
     logger = require('../lib/logger'),
     utils = require('../lib/utils'),
-    menu = require('../models/menuModel');
+    menu = require('../models/menuModel'),
+    index = require('../models/indexModel');
 
 module.exports = {
 
@@ -52,13 +53,16 @@ module.exports = {
 
             }
 
-            //Reset the menu
-            menu.resetCache();
-
             //Reindex contents
             locales.forEach(function (locale) {
                 db[locale].reindex();
             });
+
+            //Reset cache
+            setTimeout(function() {
+                menu.resetCache();
+                index.resetCache();
+            }, 10000);
 
             //Close and send the response
             res.end();

@@ -10,12 +10,12 @@
 
     'use strict';
 
-    require('../styles/app.page.post.less');
+    require('../styles/app.page.search.less');
     require('./app.common.js');
 
     var app = window.app = window.app || {},
         logEntry = {
-            module: 'app.post',
+            module: 'app.search',
             sessionId: $('#session').val()
         };
 
@@ -23,7 +23,7 @@
      * Wait until document is ready to initialize UI
      */
     $(document).on('locale.loaded', function() {
-        app.logger.info($.extend(logEntry, { message: 'post page initialized in ' + app.locale.value() }));
+        app.logger.info($.extend(logEntry, { message: 'search page initialized in ' + app.locale.value() }));
     });
 
 }(window.jQuery));

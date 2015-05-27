@@ -42,17 +42,18 @@ REM Support Directories
 REM ------------------------------------------------------------
 
 REM Copy Javascript files
-XCOPY ..\..\Memba\Memba.Blog\js .\js /E /I /R /Y
+XCOPY ..\..\Memba\Memba.Blog\js .\js /C /E /I /R /Y
 ATTRIB +R .\js\*.* /S
 
 REM Copy styles
-XCOPY ..\..\Memba\Memba.Blog\styles .\styles /E /I /R /Y
+XCOPY ..\..\Memba\Memba.Blog\styles .\styles /C /E /I /R /Y
+COPY .\graphics\kidoju.home.jpg .\styles\images\jumbotron.jpg
 ATTRIB +R .\styles\*.* /S
 
 REM TODO Copy tests
 
 REM Copy web modules
-XCOPY ..\..\Memba\Memba.Blog\web_modules .\web_modules /E /I /R /Y
+XCOPY ..\..\Memba\Memba.Blog\web_modules .\web_modules /C /E /I /R /Y
 ATTRIB +R .\web_modules\*.* /S
 
 
@@ -60,7 +61,7 @@ REM ------------------------------------------------------------
 REM Web Application
 REM ------------------------------------------------------------
 
-XCOPY ..\..\Memba\Memba.Blog\webapp .\webapp /E /I /R /Y /EXCLUDE:excludelist.txt
+XCOPY ..\..\Memba\Memba.Blog\webapp .\webapp /C /E /I /R /Y /EXCLUDE:excludelist.txt
 ATTRIB +R .\webapp\*.* /S
 ATTRIB -R .\webapp\cache\*.*
 ATTRIB -R .\webapp\config\*.json

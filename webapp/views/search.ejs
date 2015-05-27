@@ -1,0 +1,49 @@
+<% include header.ejs %>
+
+<main>
+    <div id="search-wrapper" class="k-content">
+        <div class="container">
+            <div class="page-header">
+                <h1>
+                    <% if (icon) { %><img src="<%= format(config.uris.cdn.svg.office, icon) %>" alt="<%= title %>"><% } %>
+                    <span><%= title %></span>
+                </h1>
+            </div>
+            <div class="row">
+                <div class="col-md-9">
+                    <ul class="k-listview media-list">
+                        <% for (var i = 0; i < results.length; i++) { %>
+                        <li class="media">
+                            <div class="media-left">
+                                <a href="<%= results[i].site_url %>">
+                                    <img class="media-object" src="<%= format(config.uris.cdn.svg.office, results[i].icon) %>" alt="<%= results[i].title %>">
+                                </a>
+                            </div>
+                            <div class="media-body">
+                                <h4 class="media-heading">
+                                    <a href="<%= results[i].site_url %>"><%= results[i].title %></a>
+                                </h4>
+                                <div class="author">
+                                    <i class="kf kf-tags"></i><span>&nbsp;<%= results[i].category %></span>
+                                    <i class="kf kf-user"></i><span>&nbsp;<%= results[i].author %></span>
+                                    <i class="kf kf-datetime"></i><span>&nbsp;<%= moment(results[i].creation_date).locale(getLocale()).format('LLL') %></span>
+                                </div>
+                                <p><%= results[i].description %></p>
+                            </div>
+                        </li>
+                        <% } %>
+                    </ul>
+                </div>
+                <div class="col-md-3 hidden-print">
+                    <% include groups.ejs %>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<script src="<%= urljoin(config.uris.webapp.public, 'assets/common.bundle.js') %>"></script>
+<script src="<%= urljoin(config.uris.webapp.public, 'assets/search.bundle.js') %>"></script>
+
+<% include footer.ejs %>

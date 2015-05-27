@@ -1,14 +1,35 @@
 <!DOCTYPE html>
 <html lang="<%- getLocale() %>">
 <head>
+    <title><%= title %></title>
+    <%// meta data %>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="author" content="<%- __('meta.author') %>">
+    <meta name="author" content="<%= author %>">
     <meta name="description" content="<%= description %>">
-    <% // TODO Add facebook open graph meta-data + favicon - check express %>
-    <link rel="shortcut icon" href="/favicon.ico">
-    <title><%= title %></title>
+    <% // Open graph protocol %>
+    <meta property="og:title" content="<%= title %>" />
+    <meta property="og:description" content="<%= description %>" />
+    <meta property="og:image" content="<%= format(config.uris.cdn.svg.office, icon) %>" />
+    <meta property="og:image:type" content="image/svg+xml" />
+    <% // Favicon and apple touch icons %>
+    <link rel="shortcut icon" href="<%= urljoin(config.uris.webapp.public, 'favicon.ico') %>">
+    <link rel="apple-touch-icon" sizes="57x57" href="<%= urljoin(config.uris.webapp.public, 'apple-touch-icon-57x57.png') %>">
+    <link rel="apple-touch-icon" sizes="72x72" href="<%= urljoin(config.uris.webapp.public, 'apple-touch-icon-72x72.png') %>">
+    <link rel="apple-touch-icon" sizes="76x76" href="<%= urljoin(config.uris.webapp.public, 'apple-touch-icon-76x76.png') %>">
+    <link rel="apple-touch-icon" sizes="114x114" href="<%= urljoin(config.uris.webapp.public, 'apple-touch-icon-114x114.png') %>">
+    <link rel="apple-touch-icon" sizes="120x120" href="<%= urljoin(config.uris.webapp.public, 'apple-touch-icon-120x120.png') %>">
+    <link rel="apple-touch-icon" sizes="144x144" href="<%= urljoin(config.uris.webapp.public, 'apple-touch-icon-144x144.png') %>">
+    <link rel="apple-touch-icon" sizes="152x152" href="<%= urljoin(config.uris.webapp.public, 'apple-touch-icon-152x152.png') %>">
+    <% // Canonical URL %>
+    <% if (typeof site_url === 'string' ) { %>
+    <link rel="canonical" href="<%= site_url %>" />
+    <% } %>
+    <% // Robots: do not index/archive search pages %>
+    <% if (Array.isArray(results)) { %>
+    <meta name="robots" content="noindex, noarchive">
+    <% } %>
     <% // IE10 viewport hack for Surface/desktop Windows 8 bug %>
     <!--script src="//getbootstrap.com/assets/js/ie10-viewport-bug-workaround.js"></script-->
     <% // HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries %>
@@ -16,7 +37,7 @@
     <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
     <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
-    <script src="/assets/init.bundle.js"></script>
+    <script src="<%= urljoin(config.uris.webapp.public, 'assets/init.bundle.js') %>"></script>
     <style>
         html,body{
             width:100%;
@@ -24,10 +45,10 @@
             overflow:auto;
         }
         body>div.k-loading-image{
-            top:0;
-            width:100%;
+            top:0px;
             height:100%;
-            background-color: #FFFFFF;
+            width:100%;
+            background-color:#CCCCCC;
             position:absolute;
             z-index: 2000;
         }
@@ -36,13 +57,7 @@
 <body>
 
 <% // Google Tag Manager %>
-<!--noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-PQ8XTN"
-                  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-        '//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-    })(window,document,'script','dataLayer','GTM-PQ8XTN');</script-->
+<% include gtm.ejs %>
 <% // End Google Tag Manager %>
 
 <% // preload progress image - SEE http://blogs.telerik.com/kendoui/posts/11-10-06/foujui_flash_of_uninitialized_javascript_ui %>
@@ -67,27 +82,27 @@
             </div>
             <% // Section of the navigation bar which collapses on small devices %>
             <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <% for (var i = 0; i < menu.length; i++) { if (menu[i].items) { %>
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><%- menu[i].text %>&nbsp;<span class="caret"></span></a>
-                            <ul class="dropdown-menu" role="menu">
-                                <% for (var j = 0; j < menu[i].items.length; j++) { %>
-                                    <li><a href="<%- menu[i].items[j].href %>"><%- menu[i].items[j].text %></a></li>
-                                <% } %>
-                            </ul>
-                        </li>
-                    <% } else { %>
-                        <li><a href="<%- menu[i].href %>"><%- menu[i].text %></a></li>
-                    <% } } %>
-                </ul>
                 <form class="navbar-form navbar-right" role="form">
                     <div class="form-group has-feedback">
-                        <input id="navbar-search-input" type="search" class="k-textbox" data-bind="value:search.navbar" placeholder="<%- __('header.navbar.search.placeholder') %>">
+                        <input id="navbar-search-input" type="search" class="k-textbox" placeholder="<%- __('header.navbar.search.placeholder') %>">
                         <span class="glyphicon glyphicon-search form-control-feedback"></span>
                         <!--span class="k-textbox k-space-right"><input type="search" value="Input with icon right" /><a href="#" class="k-icon k-i-search">&nbsp;</a></span-->
                     </div>
                 </form>
+                <ul class="nav navbar-nav navbar-right">
+                    <% for (var i = 0; i < menu.length; i++) { if (menu[i].items) { %>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><%- menu[i].text %>&nbsp;<span class="caret"></span></a>
+                        <ul class="dropdown-menu" role="menu">
+                            <% for (var j = 0; j < menu[i].items.length; j++) { %>
+                            <li><a href="<%- menu[i].items[j].href %>"><%- menu[i].items[j].text %></a></li>
+                            <% } %>
+                        </ul>
+                    </li>
+                    <% } else { %>
+                    <li><a href="<%- menu[i].href %>"><%- menu[i].text %></a></li>
+                    <% } } %>
+                </ul>
             </div>
         </div>
     </nav>

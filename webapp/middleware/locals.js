@@ -8,6 +8,7 @@
 'use strict';
 
 var util = require('util'),
+    moment = require('moment'),
     config = require('../config'),
     url = require('../lib/url');
 
@@ -32,11 +33,13 @@ var util = require('util'),
                 }
             },
             webapp: {
+                root            : config.get('uris:webapp:root'),
+                public          : url.join(config.get('uris:webapp:root'), config.get('uris:webapp:public')),
                 home            : url.join(config.get('uris:webapp:root'), config.get('uris:webapp:home')),
                 pages           : url.join(config.get('uris:webapp:root'), config.get('uris:webapp:pages')),
-                posts           : url.join(config.get('uris:webapp:root'), config.get('uris:webapp:posts'))
-                //rss           : url.join(config.get('uris:webapp:root'), config.get('uris:webapp:rss')),
-                //sitemap       : url.join(config.get('uris:webapp:root'), config.get('uris:webapp:sitemap'))
+                posts           : url.join(config.get('uris:webapp:root'), config.get('uris:webapp:posts')),
+                feed            : url.join(config.get('uris:webapp:root'), config.get('uris:webapp:feed')),
+                sitemap         : url.join(config.get('uris:webapp:root'), config.get('uris:webapp:sitemap'))
             }
         }
     };
@@ -45,6 +48,14 @@ var util = require('util'),
     res.locals.format = function () {
         return util.format.apply(this, arguments);
     };
+
+    // urljoin function
+    res.locals.urljoin = function () {
+        return url.join.apply(this, arguments);
+    };
+
+    //moment
+    res.locals.moment = moment;
 
     //Pass the req to the next middleware
     next();

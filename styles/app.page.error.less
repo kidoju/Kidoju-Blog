@@ -1,4 +1,4 @@
-@import "./app.page.mixins.less";
+@import "./app.mixins.less";
 
 /*********************************************
  * Error page
@@ -13,14 +13,14 @@
 
 // See http://getbootstrap.com/css/#responsive-utilities-print
 @media print {
-    //Make sure we fit page width
-    .container {
-        width: auto;
-    }
     //Reposition content for hiding header, footer and toolbar
     #error-wrapper {
         position: relative;
         top: 0px;
         overflow: visible;
+        //Make sure we fit page width
+        .container {
+            width: auto;
+        }
     }
 }

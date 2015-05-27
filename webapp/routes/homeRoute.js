@@ -7,7 +7,8 @@
 
 'use strict';
 
-var logger = require('../lib/logger'),
+var util = require('util'),
+    logger = require('../lib/logger'),
     utils = require('../lib/utils'),
     menu = require('../models/menuModel');
 
@@ -44,12 +45,15 @@ module.exports = {
                         })
                         .vary('Accept-Encoding') //See http://blog.maxcdn.com/accept-encoding-its-vary-important/
                         .render('home', {
-                            author: res.__('meta:author'),
-                            description: res.__('meta:description'),
-                            keywords: res.__('meta:keywords'),
+                            author: res.__('meta.author'),
+                            description: res.__('meta.description'),
+                            icon: util.format(res.locals.config.uris.cdn.svg.office, res.__('home.icon')), //TODO: Review
+                            keywords: res.__('meta.keywords'),
                             menu: data,
+                            results: false, //trick header into not displaying robots noindex directive
                             sessionId: sessionId,
-                            title: res.__('meta:title')
+                            site_url: res.locals.config.uris.webapp.home, //canonical link
+                            title: res.__('meta.title')
                         });
                 } else {
                     next(error);

@@ -20,6 +20,13 @@ var fs = require('fs'),
     indexPath = paths.join(__dirname, config.get('db:index')),
     indexDir = paths.dirname(indexPath);
 
+// i18n: it is a child process so it needs to be configured too
+i18n.configure({
+    locales: config.get('locales'), //['en', 'fr'],
+    directory: paths.join(__dirname,  '../locales'),
+    objectNotation: true //Use hierarchies in locales.json files
+});
+
 /**
  * format an index entry (and update Github contents accordingly)
  * @param response
@@ -68,7 +75,7 @@ function formatIndexEntry(response, callback) {
             dirty = true;
         }
         if (!head.language) {
-            head.language = i18n.__('locale');
+            head.language = convert.path2language(path); //i18n.__('locale');
             dirty = true;
         }
         if (!head.title) {
@@ -144,6 +151,7 @@ module.exports = {
      * @param callback
      */
     getIndexEntry: function(path, callback) {
+        console.log('Indexing ' + path);
         if(!convert.isMarkdown(path)) {
             return callback(new Error('The path to an index entry should designate a markdown file'));
         }
@@ -225,16 +233,16 @@ module.exports = {
         var dir = convert.getLanguageDir(language),
             indexFile = util.format(indexPath, language);
         //TODO logger
-        console.log('Create index ' + indexFile);
+        console.log('Building index ' + indexFile);
         module.exports.buildIndex(dir, function (error, index) {
             if (!error && Array.isArray(index)) {
                 //Check that directory exists or create
                 if(!fs.existsSync(indexDir)) {
-                    console.log('Create directory ' + indexDir);
+                    console.log('Creating directory ' + indexDir);
                     fs.mkdirSync(indexDir);
                 }
                 //Save index to disk in directory
-                console.log('Write file ' + indexFile);
+                console.log('Writing file ' + indexFile);
                 fs.writeFile(indexFile, JSON.stringify(index), callback);
             } else {
                 callback(error);
@@ -252,7 +260,7 @@ process.on('message', function(language){
             //TODO logger
             console.log(error);
         } else {
-            console.log('Done creating index!');
+            console.log('Done creating ' + language + ' index');
         }
     });
 });

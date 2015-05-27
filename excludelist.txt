@@ -4,6 +4,7 @@
 \config\production.json
 \config\test.json
 \public\assets\
+\public\apple-touch-ico*.png
 \public\favicon.ico
 \views\home.ejs
 \views\logo.ejs

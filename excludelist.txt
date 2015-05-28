@@ -4,7 +4,14 @@
 \config\production.json
 \config\test.json
 \public\assets\
-\public\apple-touch-ico*.png
+\public\apple-touch-icon.png
+\public\apple-touch-icon-57x57.png
+\public\apple-touch-icon-72x72.png
+\public\apple-touch-icon-76x76.png
+\public\apple-touch-icon-114x114.png
+\public\apple-touch-icon-120x120.png
+\public\apple-touch-icon-144x144.png
+\public\apple-touch-icon-152x152.png
 \public\favicon.ico
 \views\home.ejs
 \views\logo.ejs

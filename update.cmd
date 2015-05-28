@@ -65,6 +65,7 @@ XCOPY ..\..\Memba\Memba.Blog\webapp .\webapp /C /E /I /R /Y /EXCLUDE:excludelist
 ATTRIB +R .\webapp\*.* /S
 ATTRIB -R .\webapp\cache\*.*
 ATTRIB -R .\webapp\config\*.json
+ATTRIB -R .\webapp\public\*.png
 ATTRIB -R .\webapp\public\*.ico
 ATTRIB -R .\webapp\public\assets\*.*
 ATTRIB -R .\webapp\views\home.ejs

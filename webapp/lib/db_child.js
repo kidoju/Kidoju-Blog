@@ -18,7 +18,8 @@ var fs = require('fs'),
     markdown = require('./markdown'),
     utils = require('./utils'),
     indexPath = paths.join(__dirname, config.get('db:index')),
-    indexDir = paths.dirname(indexPath);
+    indexDir = paths.dirname(indexPath),
+    inProgress = {};
 
 // i18n: it is a child process so it needs to be configured too
 i18n.configure({
@@ -117,6 +118,7 @@ function formatIndexEntry(response, callback) {
                     //TODO: update_date will never be updated because it will always be found in the yml portion of the github file
                     //yml.update_date = last.commit.author.date;
                     formatted = utils.deepExtend({text: body}, head);
+                    //console.dir(formatted);
                     update(function(error, data) {
                         system_cb(error, error instanceof Error ? undefined : formatted);
                     });
@@ -255,20 +257,27 @@ module.exports = {
  * Handler triggered when the worker receives a request to rebuild an index
  */
 process.on('message', function(language){
-    module.exports.createIndex(language, function (error) {
-        if (error) {
-            //TODO logger
-            console.log(error);
-        } else {
-            console.log('Done creating ' + language + ' index');
-        }
-    });
+    if (!inProgress[language]) {
+        inProgress[language] = true;
+        module.exports.createIndex(language, function (error) {
+            inProgress[language] = false;
+            if (error) {
+                //TODO logger
+                console.log(error);
+            } else {
+                console.log('Done creating ' + language + ' index');
+            }
+        });
+    }
 });
 
 /**
  * Handler triggered when there is an uncaught exception on the child process (not the main one)
  */
 process.on('uncaughtException', function(error){
-    //TODO .logger
+    for (var language in inProgress) {
+        inProgress[language] = false;
+    }
+    //TODO logger
     console.log(error);
 });

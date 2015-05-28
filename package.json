@@ -4,6 +4,7 @@
   "description": "Kidoju's support site, including blog",
   "version": "0.0.1",
   "copyright": "Copyright (c) 2013-2015 Memba Sarl. All rights reserved.",
+  "license": "GPL-3.0",
   "keywords": [
     "kidoju",
     "blog",
@@ -18,61 +19,51 @@
   "bugs": {
     "url": "https://github.com/Memba/Kidoju-Blog/issues"
   },
-  "licenses": [
-    {
-      "type": "GPL",
-      "url": "http://www.gnu.org/licenses/gpl.txt"
-    },
-    {
-      "type": "MIT",
-      "url": "http://opensource.org/licenses/MIT"
-    }
-  ],
   "main": "webapp/server.js",
   "scripts": {
     "test": "grunt test",
     "start": "node webapp/server.js"
   },
   "dependencies": {
-      "async": "^1.0.0",
-      "body-parser": "^1.12.4",
-      "chokidar": "^1.0.1",
-      "deep-extend": "^0.4.0",
-      "ejs": "^2.3.1",
-      "express": "^4.12.4",
-      "helmet": "^0.9.0",
-      "highlight.js": "^8.6.0",
-      "i18n": "^0.5.0",
-      "le_node": "^0.2.1",
-      "marked": "^0.3.3",
-      "moment": "^2.10.3",
-      "nconf": "^0.7.1",
-      "node-uuid": "^1.4.3",
-      "qs": "^3.0.0",
-      "request": "^2.55.0"
+    "async": "^1.0.0",
+    "body-parser": "^1.12.4",
+    "chokidar": "^1.0.1",
+    "deep-extend": "^0.4.0",
+    "ejs": "^2.3.1",
+    "express": "^4.12.4",
+    "helmet": "^0.9.0",
+    "highlight.js": "^8.6.0",
+    "i18n": "^0.5.0",
+    "le_node": "^0.2.1",
+    "marked": "^0.3.3",
+    "moment": "^2.10.3",
+    "nconf": "^0.7.1",
+    "node-uuid": "^1.4.3",
+    "qs": "^3.1.0",
+    "request": "^2.55.0"
   },
   "devDependencies": {
-      "bundle-loader": "^0.5.4",
-      "chai": "^2.3.0",
-      "css-loader": "^0.14.3",
-      "file-loader": "^0.8.4",
-      "grunt": "^0.4.5",
-      "grunt-contrib-jshint": "^0.11.2",
-      "grunt-kendo-lint": "0.0.3",
-      "grunt-mocha-test": "^0.12.7",
-      "grunt-webpack": "^1.0.8",
-      "json-loader": "^0.5.2",
-      "less": "^2.5.1",
-      "less-loader": "^2.2.0",
-      "loader-utils": "^0.2.9",
-      "mocha": "^2.2.5",
-      "node-libs-browser": "^0.5.2",
-      "style-loader": "^0.12.3",
-      "supertest": "^1.0.1",
-      "url-loader": "^0.5.6",
-      "webpack": "^1.9.10",
-      "webpack-dev-server": "^1.9.0",
-      "zombie": "^3.1.1"
+    "bundle-loader": "^0.5.4",
+    "chai": "^2.3.0",
+    "css-loader": "^0.14.4",
+    "file-loader": "^0.8.4",
+    "grunt": "^0.4.5",
+    "grunt-contrib-jshint": "^0.11.2",
+    "grunt-kendo-lint": "0.0.3",
+    "grunt-mocha-test": "^0.12.7",
+    "grunt-webpack": "^1.0.8",
+    "json-loader": "^0.5.2",
+    "less": "^2.5.1",
+    "less-loader": "^2.2.0",
+    "loader-utils": "^0.2.9",
+    "mocha": "^2.2.5",
+    "node-libs-browser": "^0.5.2",
+    "style-loader": "^0.12.3",
+    "supertest": "^1.0.1",
+    "url-loader": "^0.5.6",
+    "webpack": "^1.9.10",
+    "webpack-dev-server": "^1.9.0",
+    "zombie": "^3.1.1"
   },
   "engines": {
     "node": ">=0.10.0"

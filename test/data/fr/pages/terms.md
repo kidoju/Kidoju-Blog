@@ -7,9 +7,11 @@ title: Conditions d'utilisation
 author: jlchereau
 author_url: https://github.com/jlchereau
 avatar_url: https://avatars.githubusercontent.com/u/2556751?v=3
-creation_date: 2015-05-06T16:53:57Z
+creation_date: 2015-05-28T18:12:51Z
 language: fr
 category: Default
+edit_url: https://github.com/kidoju/Kidoju-Blog/blob/master/test/data/fr/pages/terms.md
+site_url: http://localhost:3000/support/fr/terms
 ---
 Voici nos conditions d'utilisation.
 <script>

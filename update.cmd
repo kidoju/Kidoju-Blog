@@ -50,7 +50,11 @@ XCOPY ..\..\Memba\Memba.Blog\styles .\styles /C /E /I /R /Y
 COPY .\graphics\kidoju.home.jpg .\styles\images\jumbotron.jpg
 ATTRIB +R .\styles\*.* /S
 
-REM TODO Copy tests
+REM Copy tests
+XCOPY ..\..\Memba\Memba.Blog\test\api .\test\api /C /E /I /R /Y
+ATTRIB +R .\test\api\*.* /S
+XCOPY ..\..\Memba\Memba.Blog\test\zombie .\test\zombie /C /E /I /R /Y
+ATTRIB +R .\test\zombie\*.* /S
 
 REM Copy web modules
 XCOPY ..\..\Memba\Memba.Blog\web_modules .\web_modules /C /E /I /R /Y

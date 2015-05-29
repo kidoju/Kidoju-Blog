@@ -16,7 +16,7 @@
         "index": "../cache/%s.json"
     },
     "github": {
-        "repository": "memba/test",
+        "repository": "Kidoju/support.kidoju.com",
         "branch": "master",
         "language": "%s/",
         "menu": "menu.json",
@@ -35,7 +35,7 @@
             }
         },
         "webapp": {
-            "root": "http://localhost:3000",
+            "root": "http://www.kidoju.com",
             "ping": "/support/ping",
             "public": "/support/",
             "home": "/support/",

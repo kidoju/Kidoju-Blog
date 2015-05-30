@@ -13,5 +13,6 @@
 \public\apple-touch-icon-144x144.png
 \public\apple-touch-icon-152x152.png
 \public\favicon.ico
+\views\gtm.ejs
 \views\home.ejs
 \views\logo.ejs

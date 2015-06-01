@@ -1,3 +1,4 @@
+cd /d %~dp0
 REM ************************************************************
 REM IMPORTANT!
 REM Memba.Blog is the original project where any modifications

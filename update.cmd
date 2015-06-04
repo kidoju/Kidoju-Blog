@@ -15,6 +15,11 @@ ATTRIB -R .\.*
 COPY ..\..\Memba\Memba.Blog\.* .\ /Y
 ATTRIB +R .\.*
 
+REM build.cmd
+ATTRIB -R .\build.cmd
+COPY ..\..\Memba\Memba.Blog\build.cmd .\ /Y
+ATTRIB +R .\build.cmd
+
 REM TODO Coverage
 
 REM Dockerfile

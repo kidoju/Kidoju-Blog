@@ -1,13 +1,37 @@
-//http://gruntjs.com/sample-gruntfile
+/**
+ * Copyright (c) 2013-2015 Memba Sarl. All rights reserved.
+ * Sources at https://github.com/Memba
+ */
+
+/* jshint node: true */
+
+'use strict';
 
 module.exports = function (grunt) {
 
-    'use strict';
+    /**
+     * Unfortunately, we cannot use grunt-env to set the environment
+     * - webpack uses a DefinePlugin which reads process.env.NODE_ENV
+     * - nconf reads process.env.NODE_ENV
+     * Both read the environment variable before grunt-env can set it in the grunt process.
+     * So we have not other way than to actually set NODE_ENV in the OS to produce a build
+     * especially set NODE_ENV=production for a production build
+     */
+
+    if (process.env.NODE_ENV) {
+        console.log('grunt environment is ' + process.env.NODE_ENV);
+    } else {
+        console.log('IMPORTANT: grunt environment is undefined. Launch your webstorm terminal session with cmd.exe /K "set NODE_ENV=development"');
+    }
+
+    var webpack = require('webpack'),
+        webpackConfig = require(__dirname + '/webpack.config.js');
 
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
         jshint: {
-            all: ['gruntfile.js', 'js/**/*.js', 'webapp/**/*.js', 'test/**/*.js'],
+            all: ['gruntfile.js', 'webpack.config.js', 'js/**/*.js', 'webapp/**/*.js', 'test/**/*.js'],
+            ignores: ['js/vendor/**/*.js', 'webapp/public/**/*.js', 'test/vendor/**/*.js'],
             options: {
                 jshintrc: true
             }
@@ -15,18 +39,15 @@ module.exports = function (grunt) {
         kendo_lint: {
             files: ['src/js/app*.js']
         },
-        /*
-        csslint: {
-            strict: {
-                options: {
-                    import: 2
-                },
-                src: ['src/styles/app.*.css']
-            }
-        },
-        */
         webpack: {
-            build: require(__dirname + '/webpack.config.js')
+            //See https://github.com/webpack/webpack-with-common-libs/blob/master/Gruntfile.js
+            options: webpackConfig,
+            build: {
+                plugins: webpackConfig.plugins.concat(
+                    new webpack.optimize.DedupePlugin(),
+                    new webpack.optimize.UglifyJsPlugin()
+                )
+            }
         },
         mochaTest: {
             all: {
@@ -39,39 +60,20 @@ module.exports = function (grunt) {
                 src: ['test/**/*.js']
             }
         }
-        /*
-        yuidoc: {
-            compile: {
-                name: '<%= pkg.name %>',
-                description: '<%= pkg.description %>',
-                version: '<%= pkg.version %>',
-                url: '<%= pkg.homepage %>',
-                options: {
-                    paths: 'src/js/',
-                    outdir: 'docs/yui/'
-                }
-            }
-        }
-        */
     });
 
     //Lint
     grunt.loadNpmTasks('grunt-contrib-jshint');
     grunt.loadNpmTasks('grunt-kendo-lint');
-    //grunt.loadNpmTasks('grunt-contrib-csslint');
 
     //Build
     grunt.loadNpmTasks('grunt-webpack');
 
     //Tests
-    //grunt.loadNpmTasks('grunt-mocha');
     grunt.loadNpmTasks('grunt-mocha-test');
 
-    //Documentation
-    //grunt.loadNpmTasks('grunt-contrib-yuidoc');
-
     grunt.registerTask('lint', ['jshint', 'kendo_lint']);
-    grunt.registerTask('build', ['webpack']);
+    grunt.registerTask('build', ['webpack:build']);
     grunt.registerTask('test', ['mochaTest']);
     grunt.registerTask('default', ['lint', 'build', 'test']);
 

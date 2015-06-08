@@ -7,14 +7,9 @@
 
 'use strict';
 
-// More info at:
-// https://github.com/logentries/le_node
-// https://logentries.com/doc/nodejs/
-
 var config = require('../config'),
     utils = require('./utils'),
-    LogEntries = require('le_node'),
-    logger = new LogEntries({ token: config.get('logentries:server:token')});
+    debug = config.get('debug');
 
 /**
  * Process entry.request if existing
@@ -33,39 +28,82 @@ function process(entry) {
         });
         delete entry.request;
     }
+    if(entry.error && entry.error.originalError) {
+        entry.originalError = entry.error.originalError;
+        delete entry.error.originalError;
+    }
+    entry.date = (new Date()).toISOString();
     return entry;
+}
+
+/**
+ * Log to console
+ * @param entry
+ * @private
+ */
+function log(entry) {
+    // consider using process.stdout.writeln + add colors
+    console.log(JSON.stringify(process(entry)));
+}
+
+/**
+ * Error to console
+ * @param entry
+ * @private
+ */
+function error(entry) {
+    // consider using process.stderr.writeln
+    console.error(JSON.stringify(process(entry)));
 }
 
 module.exports = {
 
-    console: function(entry) {
-        //TODO consider more sophisticated presentation with colors
-        //TODO we are missing the stack trace!!!!!!!!!!!!!!
-        console.dir(entry, { showHidden: false, depth: 4, colors: true });
+    /**
+     * Log a debug entry
+     * Only output if debug===true
+     * @param entry
+     */
+    debug: function(entry) {
+        if (debug) {
+            entry.level='DEBUG';
+            log(entry);
+        }
     },
 
+    /**
+     * Log an info entry
+     * @param entry
+     */
     info: function(entry) {
-        logger.log('info', process(entry));
+        entry.level='INFO';
+        log(entry);
     },
 
+    /**
+     * Log a warning entry
+     * @param entry
+     */
     warning: function(entry) {
-        logger.log('warning', process(entry));
+        entry.level='WARN';
+        log(entry);
     },
 
+    /**
+     * Log an error entry
+     * @param entry
+     */
     error: function(entry) {
-        entry = process(entry);
-        module.exports.console(entry);
-        logger.log('err', entry);
+        entry.level='ERROR';
+        error(entry);
     },
 
+    /**
+     * Log a critical entry
+     * @param entry
+     */
     critical: function(entry) {
-        entry = process(entry);
-        module.exports.console(entry);
-        logger.log('crit', entry);
-    },
-
-    flush: function() {
-        logger.closeConnection();
+        entry.level='CRIT';
+        error(entry);
     }
 
 };

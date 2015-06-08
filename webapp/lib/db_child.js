@@ -15,6 +15,7 @@ var fs = require('fs'),
     config = require('../config'),
     convert = require('./convert'),
     github = require('./github'),
+    logger = require('./logger'),
     markdown = require('./markdown'),
     utils = require('./utils'),
     indexPath = paths.join(__dirname, config.get('db:index')),
@@ -153,7 +154,11 @@ module.exports = {
      * @param callback
      */
     getIndexEntry: function(path, callback) {
-        console.log('Indexing ' + path);
+        logger.info({
+            message: 'Indexing ' + path,
+            module: 'lib/db_child',
+            method: 'getIndexEntry'
+        });
         if(!convert.isMarkdown(path)) {
             return callback(new Error('The path to an index entry should designate a markdown file'));
         }
@@ -174,7 +179,7 @@ module.exports = {
     },
 
     /**
-     * Build an index array
+     * Build an index array (This is the recursive function)
      * @param dir
      * @param callback
      */
@@ -227,24 +232,36 @@ module.exports = {
     },
 
     /**
-     * Create an index on disk
+     * Create an index on disk (this is the root function)
      * @param language
      * @param callback
      */
     createIndex: function(language, callback) {
         var dir = convert.getLanguageDir(language),
             indexFile = util.format(indexPath, language);
-        //TODO logger
-        console.log('Building index ' + indexFile);
+        logger.debug({
+            message: 'Building index ' + indexFile,
+            module: 'lib/db_child',
+            method: 'createIndex'
+        });
         module.exports.buildIndex(dir, function (error, index) {
             if (!error && Array.isArray(index)) {
                 //Check that directory exists or create
                 if(!fs.existsSync(indexDir)) {
-                    console.log('Creating directory ' + indexDir);
+                    logger.debug({
+                        message: 'Creating directory ' + indexDir,
+                        module: 'lib/db_child',
+                        method: 'createIndex'
+                    });
                     fs.mkdirSync(indexDir);
                 }
                 //Save index to disk in directory
-                console.log('Writing file ' + indexFile);
+                logger.debug({
+                    message: 'Writing file ' + indexFile,
+                    module: 'lib/db_child',
+                    method: 'createIndex',
+                    data: index
+                });
                 fs.writeFile(indexFile, JSON.stringify(index), callback);
             } else {
                 callback(error);
@@ -262,10 +279,18 @@ process.on('message', function(language){
         module.exports.createIndex(language, function (error) {
             inProgress[language] = false;
             if (error) {
-                //TODO logger
-                console.log(error);
+                logger.error({
+                    message: 'Error creating index in ' + language,
+                    module: 'lib/db_child',
+                    method: 'process.onmessage',
+                    error: error
+                });
             } else {
-                console.log('Done creating ' + language + ' index');
+                logger.info({
+                    message: 'Done creating index in ' + language,
+                    module: 'lib/db_child',
+                    method: 'process.onmessage'
+                });
             }
         });
     }
@@ -278,6 +303,14 @@ process.on('uncaughtException', function(error){
     for (var language in inProgress) {
         inProgress[language] = false;
     }
-    //TODO logger
-    console.log(error);
+    try {
+        logger.critical({
+            message: 'Uncaught exception',
+            module: 'lib/db_child',
+            method: 'process.onuncaughtException',
+            error: error
+        });
+    } catch (exception) {
+        console.error(exception);
+    }
 });

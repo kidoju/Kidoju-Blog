@@ -12,9 +12,10 @@ var fs = require('fs'),
     path = require('path'),
     chokidar = require('chokidar'),
     config = require('../config'),
-    locales = config.get('locales'),
     convert = require('./convert'),
+    logger = require('./logger'),
     utils = require('./utils'),
+    locales = config.get('locales'),
     indexer;
 
 /**
@@ -33,16 +34,24 @@ if(typeof indexer === 'undefined') {
             execArgv[0] = '--debug-brk=' + (parseInt(matches[1], 10) + 1);
         }
     }
-    console.log('Forking db_child indexing process with execArgv:');
-    console.dir(execArgv);
     indexer = require('child_process').fork(path.join(__dirname, 'db_child.js'), undefined, {execArgv: execArgv});
+    logger.info({
+        message: 'Forked db_child indexing process with execArgv:',
+        module: 'lib/db',
+        method: 'none',
+        execArgv: execArgv
+    });
 }
 
 /**
  * The chokidar file watcher loads the index when it is ready
  */
 chokidar.watch(convert.getIndexDir()).on('all', function(event, path) {
-    console.log(event, path);
+    logger.info({
+        message: event + ' event on ' + path,
+        module: 'lib/db',
+        method: 'chokidar.watch'
+    });
     if(/^(add|change)$/i.test(event)) {
         var language = convert.index2language(path);
         if (locales.indexOf(language) > -1) {
@@ -66,21 +75,30 @@ var Collection = function(locale) {
  */
 Collection.prototype.load = function() {
     try {
-        var indexFile = convert.getIndexPath(this.locale);
-        console.log('Loading ' + indexFile);
-        var buf = fs.readFileSync(indexFile),
+        var indexFile = convert.getIndexPath(this.locale),
+            buf = fs.readFileSync(indexFile),
             data = JSON.parse(buf.toString());
-        if (Array.isArray(data)) {
+        if (Array.isArray(data) && data.length) {
             this.data = data;
-            console.log('Index ' + this.locale + ' loaded with ' + data.length + ' entries');
         }
+        logger.info({
+            message: 'Index ' + this.locale + ' loaded with ' + this.data.length + ' entries',
+            module: 'lib/db',
+            method: 'Collection.prototype.load',
+            data: this.data.slice(0, 1)
+        });
     } catch(exception) {
-        console.dir(exception);
+        logger.error({
+            message: 'Error loading index from ' + indexFile,
+            module: 'lib/db',
+            method: 'Collection.prototype.load',
+            data: this.data.slice(0, 1)
+        });
         if(exception.code === 'ENOENT') {
             //if index file not found, reindex
-            console.log('Index file not found');
             this.reindex();
-        } else {
+        } else if (!(exception instanceof SyntaxError)) {
+            //e.g. JSON.parse('') throws SyntaxError
             throw exception;
         }
     }
@@ -91,11 +109,19 @@ Collection.prototype.load = function() {
  * Once built, the file watcher will be triggered to reload the index
  */
 Collection.prototype.reindex = function() {
-    console.log('Reindexation triggered for ' + this.locale);
     if (indexer) {
+        logger.info({
+            message: 'Reindexation triggered for ' + this.locale,
+            module: 'lib/db',
+            method: 'Collection.prototype.reindex'
+        });
         indexer.send(this.locale);
     } else {
-        console.log('The db_child process has not been forked for reindexation.');
+        logger.critical({
+            message: 'The db_child process has not been forked to allow reindexation.',
+            module: 'lib/db',
+            method: 'Collection.prototype.reindex'
+        });
     }
 };
 
@@ -234,8 +260,13 @@ Collection.prototype.group = function(query, callback) {
  * Database
  * @type {{reindex: Function}}
  */
+logger.info({
+    message: 'Loading indexes',
+    module: 'lib/db',
+    method: 'none',
+    execArgv: execArgv
+});
 var db = {};
-console.log('Loading indexes');
 locales.forEach(function(locale){
     db[locale] = new Collection(locale);
     db[locale].load();

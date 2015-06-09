@@ -53,9 +53,13 @@ module.exports = function (grunt) {
         mocha: {
             browser: { //In browser unit tests
                 options: {
-                    run: true
+                    log: true,
+                    logErrors: true,
+                    reporter: 'Spec',
+                    run: true,
+                    timeout: 5000
                 },
-                src: ['test/browsers/**/*.html']
+                src: ['test/browser/**/*.html']
             }
         },
         mochaTest: { //In node unit tests
@@ -66,7 +70,7 @@ module.exports = function (grunt) {
                     timeout: 10000,
                     ui: 'bdd'
                 },
-                src: ['test/node_api/**/*.js', 'test/zombie/**/*.js']
+                src: ['test/node/**/*.js']
             }
         }
     });

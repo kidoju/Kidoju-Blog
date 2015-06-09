@@ -15,10 +15,10 @@ ATTRIB -R .\.*
 COPY ..\..\Memba\Memba.Blog\.* .\ /Y
 ATTRIB +R .\.*
 
-REM build.cmd
-ATTRIB -R .\build.cmd
-COPY ..\..\Memba\Memba.Blog\build.cmd .\ /Y
-ATTRIB +R .\build.cmd
+REM build.cmd and BUILD.md
+ATTRIB -R .\build.*
+COPY ..\..\Memba\Memba.Blog\build.* .\ /Y
+ATTRIB +R .\build.*
 
 REM TODO Coverage
 
@@ -37,15 +37,20 @@ ATTRIB -R .\LICENSE-GPLv3
 COPY ..\..\Memba\Memba.Blog\LICENSE-GPLv3 .\ /Y
 ATTRIB +R .\LICENSE-GPLv3
 
-REM webpack
-ATTRIB -R .\webpack.config.js
-COPY ..\..\Memba\Memba.Blog\webpack.config.js .\ /Y
-ATTRIB +R .\webpack.config.js
-
 REM setup.cmd
 ATTRIB -R .\setup.cmd
 COPY ..\..\Memba\Memba.Blog\setup.cmd .\ /Y
 ATTRIB +R .\setup.cmd
+
+REM UPDATE.md
+ATTRIB -R .\UPDATE.md
+COPY ..\..\Memba\Memba.Blog\UPDATE.md .\ /Y
+ATTRIB +R .\UPDATE.md
+
+REM webpack
+ATTRIB -R .\webpack.config.js
+COPY ..\..\Memba\Memba.Blog\webpack.config.js .\ /Y
+ATTRIB +R .\webpack.config.js
 
 
 REM ------------------------------------------------------------

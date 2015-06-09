@@ -1,17 +1,17 @@
 {
   "name": "Kidoju.Blog",
   "filename": "kidoju.blog",
-  "description": "Kidoju's support site, including blog",
   "version": "0.0.1",
-  "copyright": "Copyright (c) 2013-2015 Memba Sarl. All rights reserved.",
+  "description": "Kidoju's support site, including blog",
+  "author": "Memba Sarl",
+  "copyright": "Copyright ©2013-2015 Memba® Sarl. All rights reserved.",
   "license": "GPL-3.0",
+  "homepage": "https://support.kidoju.com/support",
   "keywords": [
     "kidoju",
     "blog",
     "support"
   ],
-  "homepage": "http://support.kidoju.com",
-  "author": "Memba Sarl",
   "repository": {
     "type": "git",
     "url": "http://github.com/Memba/Kidoju-Blog.git"

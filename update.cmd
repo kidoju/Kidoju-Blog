@@ -42,6 +42,11 @@ ATTRIB -R .\webpack.config.js
 COPY ..\..\Memba\Memba.Blog\webpack.config.js .\ /Y
 ATTRIB +R .\webpack.config.js
 
+REM setup.cmd
+ATTRIB -R .\setup.cmd
+COPY ..\..\Memba\Memba.Blog\setup.cmd .\ /Y
+ATTRIB +R .\setup.cmd
+
 
 REM ------------------------------------------------------------
 REM Support Directories

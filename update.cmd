@@ -97,5 +97,6 @@ ATTRIB -R .\webapp\config\*.json
 ATTRIB -R .\webapp\public\*.png
 ATTRIB -R .\webapp\public\*.ico
 ATTRIB -R .\webapp\public\assets\*.*
+ATTRIB -R .\webapp\views\gtm.ejs
 ATTRIB -R .\webapp\views\home.ejs
 ATTRIB -R .\webapp\views\logo.ejs

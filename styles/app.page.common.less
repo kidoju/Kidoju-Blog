@@ -26,25 +26,34 @@ label {
 // Navbar (see Twitter Bootstrap)
 .navbar {
     .navbar-brand {
-        padding: 3px 3px;  /*TODO: there are better ways to centre vertically - use for copyright*/
+        padding: 3px 3px;
         height: 50px;
         width: 180px;
     }
     a {
         cursor: pointer;
     }
-    a[role="button"] {
+    ul.navbar-nav > li > a {
+        height: 50px;
+        padding: 9px 9px; /* 9 + 32 + 9 = 50 */
         i.kf {
             font-size: 30px;
+            height: 32px;
+        }
+        img {
+            height: 32px;
+            width: 32px;
         }
         span {
-            margin: 0 1em 0 0;
             vertical-align: middle;
             font-size: 16px
         }
+        i.kf + span, img + span {
+            padding-left: 0.2em;
+        }
     }
-    a[role="button"]:hover {
-        text-decoration:none;
+    ul.navbar-nav > li > a:hover {
+        text-decoration: none;
         i.kf {
             .scale(1.1); //from vendor/bootstrap/mixins/vendor-prefixes.less
         }
@@ -108,7 +117,6 @@ label {
 /*********************************************
  * Main styles
  *********************************************/
-
 // Page headings (see Twitter Bootstrap)
 .page-header {
     margin: 20px 0 20px;
@@ -240,7 +248,8 @@ form {
         }
     }
 }
-form:not(.form-horizontal) .k-invalid-msg {
+form:not(
+.form-horizontal) .k-invalid-msg {
     width: initial; //align validation messages with labels in forms where labels sit above inputs
     position: relative;
     margin-left: 10px;

@@ -4,100 +4,84 @@
  */
 
 /* jshint browser: true, jquery: true */
-/* globals require: false */
+/* globals define: false */
 
-(function () {
+(function(f, define){
+    'use strict';
+    define([
+        './app.logger'
+    ], f);
+})(function(){
 
     'use strict';
 
-    //Load common styles
-    require('../styles/bootstrap.custom.less');
-    require('../styles/fonts/kidoju.less');
-    require('../styles/vendor/kendo/web/kendo.common.less');
-    //require('../styles/vendor/kendo/web/kendo.highcontrast.less');
-    //require('../styles/app.theme.highcontrast.less');
+    (function ($, undefined) {
 
-    var app = window.app = window.app || {},
-        FUNCTION = 'function',
-        STRING = 'string',
-        UNDEFINED = 'undefined',
-        THEME = 'theme',
-        DEFAULT = 'default';
+        var app = window.app,
+            logger = app.logger,
+            STRING = 'string',
+            THEME = 'theme',
+            DEFAULT = 'default';
 
-    /**
-     * Log a message
-     * @param message
-     */
-    function log(message) {
-        if (app.DEBUG && window.console && typeof window.console.log === FUNCTION) {
-            window.console.log('app.theme: ' + message);
-        }
-    }
+        app.theme = {
 
-    /**
-     *
-     */
-    app.theme = {
-
-        /**
-         *
-         * @param theme
-         * @param callback
-         */
-        _load: function (theme, callback) {
-            //TODO Reject unlisted theme
-            var oldTheme = localStorage.getItem(THEME), loader;
-            if(typeof oldTheme === STRING && oldTheme !== theme) {
-                try {
+            /**
+             * Load a theme
+             * @param theme
+             */
+            load: function (theme) {
+                //TODO Reject unlisted theme
+                var dfd = $.Deferred(),
+                    oldTheme = localStorage.getItem(THEME), loader;
+                if(typeof oldTheme === STRING && oldTheme !== theme) {
                     //See https://github.com/webpack/style-loader/issues/48
                     //See https://github.com/webpack/webpack/issues/924
                     //See //https://github.com/webpack/webpack/issues/993
-                    //loader = require('bundle?name=[name]!style/useable!css!less../styles/app.theme.' + oldTheme + '.less');
                     loader = require('../styles/app.theme.' + oldTheme + '.less');
                     loader(function(style) {
                         style.unuse();
                     });
-                } catch(e) {
-                    log(e.message);
                 }
-            }
-            localStorage.setItem(THEME, theme);
-            try {
-                //loader = require('bundle?name=[name]!style/useable!css!less!../styles/app.theme.' + theme + '.less');
+                localStorage.setItem(THEME, theme);
                 loader = require('../styles/app.theme.' + theme + '.less');
                 loader(function(style) {
                     style.use();
-                    if (typeof callback === FUNCTION) {
-                        callback();
-                    }
+                    logger.debug({
+                        message: 'theme changed to ' + theme,
+                        module: 'app.theme',
+                        method: 'load'
+                    });
+                    dfd.resolve();
                 });
-            } catch (e) {
-                log(e.message);
-            }
-        },
+                return dfd.promise();
+            },
 
-        /**
-         *
-         * @param theme
-         */
-        value: function (theme) {
-            if (typeof theme === STRING) {
-                app.theme._load(theme);
-            } else if (typeof theme === UNDEFINED) {
-                return localStorage.getItem(THEME);
-            } else {
-                throw new TypeError('bad theme');
+            /**
+             * Get/set theme name
+             * @param theme
+             */
+            name: function (theme) {
+                if (typeof theme === STRING) {
+                    app.theme.load(theme);
+                } else if (theme === undefined) {
+                    return localStorage.getItem(THEME);
+                } else {
+                    throw new TypeError('bad theme');
+                }
             }
+
+        };
+
+        //load theme
+        var theme = app.theme.name();
+        if(theme) {
+            app.theme.name(theme);
+        } else {
+            app.theme.name(DEFAULT);
         }
 
-    };
+    }(window.jQuery));
 
-    //load theme
-    var theme = app.theme.value();
-    if(theme) {
-        app.theme.value(theme);
-    } else {
-        app.theme.value(DEFAULT);
-    }
+    return window.app;
 
-}());
+}, typeof define === 'function' && define.amd ? define : function(_, f){ 'use strict'; f(); });

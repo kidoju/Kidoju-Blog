@@ -4,29 +4,50 @@
  */
 
 /* jshint browser: true, jquery: true */
-/* globals require: false */
+/* globals define: false, require: false */
 
-(function ($, undefined) {
+// Load CSS
+require('../styles/app.page.error.less');
+
+(function(f, define){
+    'use strict';
+    define([
+        './app.logger',
+        './app.i18n',
+        './app.common' //<----- errors have no menu in case the error comes from the menu
+    ], f);
+})(function() {
 
     'use strict';
 
-    require('../styles/app.page.error.less');
-    require('./app.common.js');
+    (function ($, undefined) {
 
-    var app = window.app = window.app || {},
-        logEntry = {
-            module: 'app.error',
-            sessionId: $('#session').val()
-        };
+        var app = window.app,
+            logger = app.logger,
+            i18n = app.i18n;
 
-    /**
-     * Wait until document is ready to initialize UI
-     */
-    $(document).on('locale.loaded', function() {
-        $('#back-button').click(function(e) {
-            window.history.back();
+        /**
+         * Wait for document to be ready to initialize UI
+         * Note: no need to use the i18n.loaded event here
+         */
+        $(document).ready(function() {
+
+            //Add click handler on back button
+            $('#back-button').click(function() {
+                window.history.back();
+            });
+
+            //Log page readiness
+            logger.info({
+                message: 'error page initialized in ' + i18n.locale(),
+                module: 'app.error',
+                method: '$(document).ready'
+            });
+
         });
-        app.logger.info($.extend(logEntry, { message: 'error page initialized in ' + app.locale.value() }));
-    });
 
-}(window.jQuery));
+    }(window.jQuery));
+
+    return window.app;
+
+}, typeof define === 'function' && define.amd ? define : function(_, f){ 'use strict'; f(); });

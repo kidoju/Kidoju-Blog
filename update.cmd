@@ -117,6 +117,11 @@ ATTRIB -R .\UPDATE.md
 COPY ..\..\Memba\Memba.Blog\UPDATE.md .\ /Y
 ATTRIB +R .\UPDATE.md
 
+REM watch.cmd
+ATTRIB -R .\watch.cmd
+COPY ..\..\Memba\Memba.Blog\watch.cmd .\ /Y
+ATTRIB +R .\watch.cmd
+
 REM webpack
 ATTRIB -R .\webpack.config.js
 COPY ..\..\Memba\Memba.Blog\webpack.config.js .\ /Y

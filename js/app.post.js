@@ -8,7 +8,7 @@
 
 require('../styles/app.page.post.less');
 
-(function(f, define){
+(function (f, define) {
     'use strict';
     define([
         './app.logger',
@@ -16,22 +16,21 @@ require('../styles/app.page.post.less');
         './app.common',
         './app.menu'
     ], f);
-})(function() {
+})(function () {
 
     'use strict';
 
     (function ($, undefined) {
 
-        var app = window.app,
-            logger = app.logger,
-            i18n = app.i18n;
+        var app = window.app;
+        var logger = new window.Logger('app.post');
+        var i18n = app.i18n;
 
-        $(document).ready(function() {
+        $(document).ready(function () {
 
-            //Log page readiness
+            // Log page readiness
             logger.info({
                 message: 'post page initialized in ' + i18n.locale(),
-                module: 'app.post',
                 method: '$(document).ready'
             });
 
@@ -41,4 +40,4 @@ require('../styles/app.page.post.less');
 
     return window.app;
 
-}, typeof define === 'function' && define.amd ? define : function(_, f){ 'use strict'; f(); });
+}, typeof define === 'function' && define.amd ? define : function (_, f) { 'use strict'; f(); });

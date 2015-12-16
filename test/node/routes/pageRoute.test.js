@@ -3,24 +3,23 @@
  * Sources at https://github.com/Memba
  */
 
-/* jshint node: true, expr: true */
-/* globals describe: false, before: false, it: false */
+/* jshint node: true, mocha: true, expr: true */
 
 'use strict';
 
-var request = require('supertest'),
-    util = require('util'),
+var request = require('supertest');
+var util = require('util');
 
-    //We cannot define app like this because the server is already running
-    //app = request('../../../webapp/server');
+// We cannot define app like this because the server is already running
+// var app = request('../../../webapp/server');
 
-    config = require('../../../webapp/config'),
-    app = config.get('uris:webapp:root');
+var config = require('../../../webapp/config');
+var app = config.get('uris:webapp:root');
 
 
-describe('routes/pageRoute', function() {
+describe('routes/pageRoute', function () {
 
-    it('it should return an english page', function(done) {
+    it('it should return an english page', function (done) {
         request(app)
             .get(util.format(config.get('uris:webapp:pages'), 'en', ''))
             .expect(200)
@@ -28,7 +27,7 @@ describe('routes/pageRoute', function() {
             .end(done);
     });
 
-    it('it should return a french page', function(done) {
+    it('it should return a french page', function (done) {
         request(app)
             .get(util.format(config.get('uris:webapp:pages'), 'fr', ''))
             .expect(200)
@@ -36,7 +35,7 @@ describe('routes/pageRoute', function() {
             .end(done);
     });
 
-    it('it should return an error page on unknown language', function(done) {
+    it('it should return an error page on unknown language', function (done) {
         request(app)
             .get(util.format(config.get('uris:webapp:pages'), 'zz', ''))
             .expect(400)
@@ -44,7 +43,7 @@ describe('routes/pageRoute', function() {
             .end(done);
     });
 
-    it('it should return an error page on unknown page', function(done) {
+    it('it should return an error page on unknown page', function (done) {
         request(app)
             .get(util.format(config.get('uris:webapp:pages'), 'en', 'dummy'))
             .expect(404)

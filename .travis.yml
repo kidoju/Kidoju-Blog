@@ -1,13 +1,16 @@
+sudo: false
 language: node_js
 node_js:
-  - "0.10"
-  - "0.11"
-  - "0.12"
+  - "5.1"
+  - "5.0"
+  - "4.2"
+  - "4.1"
+  - "4.0"
+  - "iojs"
 env:
   - "NODE_ENV=test"
 before_install:
   - "npm install -g npm"
   - "npm install -g grunt-cli"
-  - "npm install -g forever"
 before_script:
   - "grunt build"

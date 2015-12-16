@@ -3,23 +3,22 @@
  * Sources at https://github.com/Memba
  */
 
-/* jshint node: true, expr: true */
-/* globals describe: false, before: false, it: false */
+/* jshint node: true, mocha: true, expr: true */
 
 'use strict';
 
-var request = require('supertest'),
+var request = require('supertest');
 
-    //We cannot define app like this because the server is already running
-    //app = request('../../../webapp/server');
+// We cannot define app like this because the server is already running
+// var app = request('../../../webapp/server');
 
-    config = require('../../../webapp/config'),
-    app = config.get('uris:webapp:root');
+var config = require('../../../webapp/config');
+var app = config.get('uris:webapp:root');
 
 
-describe('routes/homeRoute', function() {
+describe('routes/homeRoute', function () {
 
-    it('it should return the home page', function(done) {
+    it('it should return the home page', function (done) {
         request(app)
             .get(config.get('uris:webapp:home'))
             .expect(200)

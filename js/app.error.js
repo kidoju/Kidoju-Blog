@@ -6,41 +6,45 @@
 /* jshint browser: true, jquery: true */
 /* globals define: false, require: false */
 
-// Load CSS
-require('../styles/app.page.error.less');
+'use strict';
 
-(function(f, define){
-    'use strict';
+if (typeof(require) === 'function') {
+    // Load styles
+    require('../styles/app.page.error.less');
+}
+
+(function (f, define) {
+    // 'use strict';
     define([
-        './app.logger',
+        './window.assert',
+        './window.logger',
         './app.i18n',
-        './app.common' //<----- errors have no menu in case the error comes from the menu
+        './app.common' // <----- errors have no menu in case the error comes from the menu
     ], f);
-})(function() {
+})(function () {
 
-    'use strict';
+    // 'use strict';
 
     (function ($, undefined) {
 
-        var app = window.app,
-            logger = app.logger,
-            i18n = app.i18n;
+        var app = window.app;
+        var logger = new window.Logger('app.error');
+        var i18n = app.i18n;
 
         /**
          * Wait for document to be ready to initialize UI
          * Note: no need to use the i18n.loaded event here
          */
-        $(document).ready(function() {
+        $(document).ready(function () {
 
-            //Add click handler on back button
-            $('#back-button').click(function() {
+            // Add click handler on back button
+            $('#back-button').click(function () {
                 window.history.back();
             });
 
-            //Log page readiness
+            // Log page readiness
             logger.info({
                 message: 'error page initialized in ' + i18n.locale(),
-                module: 'app.error',
                 method: '$(document).ready'
             });
 
@@ -50,4 +54,4 @@ require('../styles/app.page.error.less');
 
     return window.app;
 
-}, typeof define === 'function' && define.amd ? define : function(_, f){ 'use strict'; f(); });
+}, typeof define === 'function' && define.amd ? define : function (_, f) { /*'use strict';*/ f(); });

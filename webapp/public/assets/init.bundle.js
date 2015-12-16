@@ -1,69 +1,15 @@
-!function(e){function t(o){if(r[o])return r[o].exports;var a=r[o]={exports:{},id:o,loaded:!1};return e[o].call(a.exports,a,a.exports,t),a.loaded=!0,a.exports}var r={};return t.m=e,t.c=r,t.p="https://www.kidoju.com/support/assets/",t(0)}({0:function(e,t,r){r(496),r(193),r(497)},192:function(e,t){e.exports=function(){throw new Error("define cannot be used indirect")}},193:function(e,t,r){var o,a,i;!function(k,n){"use strict";a=[r(194)],o=k,i="function"==typeof o?o.apply(t,a):o,!(void 0!==i&&(e.exports=i))}(function(e){"use strict";return function(t){function r(e){"string"==typeof e?e={message:e}:e instanceof Error?e={error:e}:"[object Object]"!==Object.prototype.toString.call(e)&&(e={data:e}),e.error instanceof Error&&(e.message=e.error.message,e.error.originalError instanceof Error?(e.originalError=e.error.originalError,delete e.error.originalError,e.originalMessage=e.originalError.message,e.stack=e.originalError.stack):e.stack=e.error.stack);var t=document.getElementById("trace");return t instanceof HTMLInputElement&&(e.trace=t.value),e}function o(e,t){if(i.DEBUG&&window.console&&typeof window.console.log===n){var r=t,o=!0;if(e.message&&(r+=(o?d:c)+"message"+m+e.message,o=!1),e.originalMessage&&(r+=(o?d:c)+"originalMessage"+m+e.originalMessage,o=!1),e.module&&(r+=(o?d:c)+"module"+m+e.module,o=!1),e.method&&(r+=(o?d:c)+"method"+m+e.method,o=!1),e.stack&&(r+=(o?d:c)+"stack"+m+e.stack,o=!1),e.data)try{r+=(o?d:c)+"data"+m+JSON.stringify(e.data)}catch(a){typeof e.data.toString===n&&(r+=(o?d:c)+"data"+m+e.data.toString())}e.trace&&(r+=(o?d:c)+"trace"+m+e.trace,o=!1),window.console.log(r),e.error instanceof Error&&(typeof window.console.error===n?window.console.error(e.error):typeof window.console.dir===n&&window.console.dir(e.error)),e.originalError instanceof Error&&(typeof window.console.error===n?window.console.error(e.originalError):typeof window.console.dir===n&&window.console.dir(e.originalError))}}var a=window.LE||e,i=window.app=window.app||{},k=i.logger=i.logger||{token:"e78bac0b-377a-49e2-ad91-20bb4ec7cedc",level:0},n="function",l={DEBUG:"[DEBUG]",INFO:"[INFO] ",WARN:"[WARN] ",ERROR:"[ERROR]",CRIT:"[CRIT] "},s={DEBUG:1,INFO:2,WARN:4,ERROR:5,CRIT:6},m=" = ",d="  ",c="  |  ";a.init({token:k.token,ssl:!0,catchall:!1,trace:!1,page_info:"never",print:!1}),k.debug=function(e){return k.level>s.DEBUG?!1:(e=r(e),o(e,l.DEBUG),setTimeout(function(){a.log(e)},0),!0)},k.info=function(e){return k.level>s.INFO?!1:(e=r(e),o(e,l.INFO),setTimeout(function(){a.info(e)},0),!0)},k.warn=function(e){return k.level>s.WARN?!1:(e=r(e),o(e,l.WARN),setTimeout(function(){a.warn(e)},0),!0)},k.error=function(e){return k.level>s.ERROR?!1:(e=r(e),o(e,l.ERROR),setTimeout(function(){a.error(e)},0),!0)},k.critical=function(e){return k.level>s.CRIT?!1:(e=r(e),o(e,l.CRIT),setTimeout(function(){a.error(e)},0),!0)},window.onerror=function(e,t,r){var o=e+" at "+t+" (line "+r+")",a={message:o,module:"app.logger",method:"window.onerror",error:new Error(o)};return k.critical(a),!1}}(),window.app},r(192))},194:function(e,t,r){var o;/**
+!function(e){function t(r){if(n[r])return n[r].exports;var o=n[r]={exports:{},id:r,loaded:!1};return e[r].call(o.exports,o,o.exports,t),o.loaded=!0,o.exports}var n={};return t.m=e,t.c=n,t.p="https://www.kidoju.com/support/assets/",t(0)}({0:function(e,t,n){"use strict";n(200),n(202),n(204),n(521),n(522)},200:function(e,t,n){var r,o,i;!function(n,a){"use strict";o=[],r=n,i="function"==typeof r?r.apply(t,o):r,!(void 0!==i&&(e.exports=i))}(function(){"use strict";return function(e){var t="string",n="object",r="function",o="undefined",i={};"Boolean Number String Function Array Date RegExp Object Error Symbol".split(" ").forEach(function(e){i["[object "+e+"]"]=e.toLowerCase()});var a=i.toString,s=i.hasOwnProperty,u={isArray:Array.isArray,isFunction:function(e){return u.type(e)===r},isEmptyObject:function(e){var t;for(t in e)return!1;return!0},isNumeric:function(e){return!u.isArray(e)&&e-parseFloat(e)+1>=0},isPlainObject:function(e){return u.type(e)!==n||e.nodeType||u.isWindow(e)?!1:e.constructor&&!s.call(e.constructor.prototype,"isPrototypeOf")?!1:!0},isWindow:function(e){return null!==e&&e===e.window},type:function(e){return null===e?e+"":typeof e===n||typeof e===r?i[a.call(e)]||n:typeof e}},c=window.assert=function(e,t){if(!e)throw new Error(t)};c["enum"]=function(e,t,n){if(-1===e.indexOf(t))throw new RangeError(n)},c.equal=function(e,t,n){if(e!==t)throw new RangeError(n)},c.hasLength=function(e,t){if(!e||!e.length)throw new TypeError(t)},c["instanceof"]=function(e,t,n){if(!(t instanceof e))throw new TypeError(n)},c.isOptionalObject=function(e,t){if(u.type(e)!==o&&(!u.isPlainObject(e)||u.isEmptyObject(e)))throw new TypeError(t)},c.isPlainObject=function(e,t){if(!u.isPlainObject(e)||u.isEmptyObject(e))throw new TypeError(t)},c.isUndefined=function(e,t){if(u.type(e)!==o)throw new TypeError(t)},c.match=function(e,n,r){if(u.type(n)!==t||!e.test(n))throw new RangeError(r)},c.ok=function(e,t){return c(e,t)},c.type=function(e,t,n){if(u.type(t)!==e)throw new TypeError(n)},c.messages={"enum":{"default":"`{0}` is expected to be any of `{1}`"},equal:{"default":"`{0}` is expected to equal `{1}`"},hasLength:{"default":"`{0}` has neither length nor any item"},"instanceof":{"default":"`{0}` is expected to be an instance of `{1}`"},isOptionalObject:{"default":"`{0}` is expected to be undefined or a plain object"},isPlainObject:{"default":"`{0}` is expected to be a plain object"},isUndefined:{"default":"`{0}` is expected to be undefined"},match:{"default":"`{0}` is expected to match `{1}`"},ok:{"default":"A statement is expected to be true"},type:{"default":"`{0}` is expected to have type `{1}`"}}}(),window.assert},n(201))},201:function(e,t){e.exports=function(){throw new Error("define cannot be used indirect")}},202:function(e,t,n){var r,o,i;!function(n,a){"use strict";o=[],r=n,i="function"==typeof r?r.apply(t,o):r,!(void 0!==i&&(e.exports=i))}(function(){"use strict";return function(e){var t=window.app=window.app||{},n="string",r="function",o="undefined",i={DEBUG:{NAME:"DEBUG",VALUE:1},INFO:{NAME:"INFO",VALUE:2},WARN:{NAME:"WARN",VALUE:4},ERROR:{NAME:"ERROR",VALUE:5},CRIT:{NAME:"CRIT",VALUE:6}},a=i.INFO,s=/\n/g,u="; ",c=" = ",f="	",l="	",p=window.Logger=function(e){function p(e,t){if(typeof e!==n&&typeof t!==o)throw new TypeError("Unexpected data when message is not a string");var i;return typeof e===n?i={message:e,data:t}:e instanceof window.Error?i={message:e.message,error:e}:typeof window.ErrorEvent===r&&e instanceof window.ErrorEvent?i={message:e.message,data:{filename:e.filename,lineno:e.lineno,colno:e.colno},error:e.error}:"[object Object]"===Object.prototype.toString.call(e)?(i=JSON.parse(JSON.stringify(e)),e.error instanceof Error&&(i.error=e.error)):i={data:e},i}function d(e,t,r){if("[object Object]"!==Object.prototype.toString.call(e))throw new TypeError("logEntry is expected to be an object");e.error instanceof Error&&(typeof e.message===o&&(e.message=e.error.message),e.error.originalError instanceof window.Error?(e.original=e.error.originalError.message,typeof e.error.originalError.stack===n&&(e.stack=e.error.originalError.stack.replace(s,u))):typeof e.error.stack===n&&(e.stack=e.error.stack.replace(s,u))),e.module=typeof t===n?t:o,r=String(r).toUpperCase(),e.level=Object.keys(i).indexOf(r)>-1?r:a.NAME;var c=document.getElementById("trace");c instanceof HTMLInputElement&&"hidden"===c.type&&(e.trace=c.value)}function g(e){var n=window.console;if(t.DEBUG&&n&&typeof n.log===r){var o="["+e.level+(4===e.level.length?" ":"")+"]",i=!0;if(e.message&&(o+=(i?f:l)+"message"+c+e.message,i=!1),e.original&&(o+=(i?f:l)+"original"+c+e.original,i=!1),e.module&&(o+=(i?f:l)+"module"+c+e.module,i=!1),e.method&&(o+=(i?f:l)+"method"+c+e.method,i=!1),e.stack&&(o+=(i?f:l)+"stack"+c+e.stack,i=!1),e.data)try{o+=(i?f:l)+"data"+c+JSON.stringify(e.data)}catch(a){typeof e.data.toString===r&&(o+=(i?f:l)+"data"+c+e.data.toString())}e.trace&&(o+=(i?f:l)+"trace"+c+e.trace,i=!1),n.log(o),e.error instanceof Error&&typeof window.console.error===r&&window.console.error(e.error),e.originalError instanceof Error&&typeof window.console.error===r&&window.console.error(e.originalError)}}this._module=e,this.level=a.VALUE,this.log=function(e,n,o){if(e=String(e).toUpperCase(),-1===Object.keys(i).indexOf(e))throw new TypeError("level is either `debug`, `info`, `warn`, `error` or `crit`");if(this.level>i[e].VALUE)return!1;var a=p(n,o);d(a,this._module,e),g(a,e);var s=t.logger;return s&&typeof s["_"+e.toLowerCase()]===r&&s["_"+e.toLowerCase()](a),!0},this.debug=function(e,t){return this.log(i.DEBUG.NAME,e,t)},this.info=function(e,t){return this.log(i.INFO.NAME,e,t)},this.warn=function(e,t){return this.log(i.WARN.NAME,e,t)},this.error=function(e,t){return this.log(i.ERROR.NAME,e,t)},this.crit=function(e,t){return this.log(i.CRIT.NAME,e,t)}};window.onerror=function(e){var t=new p("global");t.crit(e)}}(),window.Logger},n(201))},204:function(e,t,n){var r,o,i;!function(a,s){"use strict";o=[n(205),n(200),n(202)],r=a,i="function"==typeof r?r.apply(t,o):r,!(void 0!==i&&(e.exports=i))}(function(e){"use strict";return e=e||window.LE,function(t){var n=window.app=window.app||{},r={DEBUG:{NAME:"DEBUG",VALUE:1},INFO:{NAME:"INFO",VALUE:2},WARN:{NAME:"WARN",VALUE:4},ERROR:{NAME:"ERROR",VALUE:5},CRIT:{NAME:"CRIT",VALUE:6}},o=r.INFO,i=n.logger=n.logger||{token:"e78bac0b-377a-49e2-ad91-20bb4ec7cedc",level:o.VALUE};e.init({token:i.token,ssl:!0,catchall:!1,trace:!1,page_info:"never",print:!1}),i._debug=function(t){return i.level>r.DEBUG.VALUE?!1:(setTimeout(function(){e.log(t)},0),!0)},i._info=function(t){return i.level>r.INFO.VALUE?!1:(setTimeout(function(){e.info(t)},0),!0)},i._warn=function(t){return i.level>r.WARN.VALUE?!1:(setTimeout(function(){e.warn(t)},0),!0)},i._error=function(t){return i.level>r.ERROR.VALUE?!1:(setTimeout(function(){e.error(t)},0),!0)},i._crit=function(t){return i.level>r.CRIT.VALUE?!1:(setTimeout(function(){e.error(t)},0),!0)}}(),window.app},n(201))},205:function(e,t,n){var r;/**
 	 * @license Copyright 2013 Logentries.
 	 * Please view license at https://raw.github.com/logentries/le_js/master/LICENSE
 	 */
-!function(a,i){o=function(){return i(a)}.call(t,r,t,e),!(void 0!==o&&(e.exports=o))}(this,function(e){"use strict";function t(t){var r,o=(Math.random()+Math.PI).toString(36).substring(2,10),a=t.trace,i=t.page_info,k=t.token,n=t.print;r=e.LEENDPOINT?e.LEENDPOINT:"js.logentries.com/v1";var l=!0,s=function(){return"undefined"==typeof XDomainRequest?t.ssl:"https:"===e.location.protocol?!0:!1}(),m=[],d=!1,c=!1;if(t.catchall){var b=e.onerror,p=function(e,t,r){return u({error:e,line:r,location:t}).level("ERROR").send(),b?b(e,t,r):!1};e.onerror=p}var f=function(){var t=e.navigator||{doNotTrack:void 0},r=e.screen||{},o=e.location||{};return{url:o.pathname,referrer:document.referrer,screen:{width:r.width,height:r.height},window:{width:e.innerWidth,height:e.innerHeight},browser:{name:t.appName,version:t.appVersion,cookie_enabled:t.cookieEnabled,do_not_track:t.doNotTrack},platform:t.platform}},g=function(){var e=null,t=Array.prototype.slice.call(arguments);if(0===t.length)throw new Error("No arguments!");return e=1===t.length?t[0]:t},u=function(e){var t=g.apply(this,arguments),r={event:t};return"never"!==i&&(c&&"per-entry"!==i||(c=!0,"undefined"==typeof t.screen&&"undefined"==typeof t.browser&&u(f()).level("PAGE").send())),a&&(r.trace=o),{level:function(e){if(n&&"undefined"!=typeof console&&"PAGE"!==e){var t=null;"undefined"!=typeof XDomainRequest&&(t=r.trace+" "+r.event);try{console[e.toLowerCase()].call(console,t||r)}catch(o){console.log(t||r)}}return r.level=e,{send:function(){var e=[],t=JSON.stringify(r,function(t,r){var o=function(e,t){for(var r=0;r<e.length;r++)if(t===e[r])return r;return-1};if("undefined"==typeof r)return"undefined";if("object"==typeof r&&null!==r){if(-1!==o(e,r))return"<?>";e.push(r)}return r});d?m.push(t):h(k,t)}}}}};this.log=u;var h=function(e,t){d=!0;var o=function(){return"undefined"!=typeof XDomainRequest?new XDomainRequest:new XMLHttpRequest},a=o();if(l){a.constructor===XMLHttpRequest?a.onreadystatechange=function(){4===a.readyState&&(a.status>=400?(console.error("Couldn't submit events."),410===a.status&&console.warn("This version of le_js is no longer supported!")):(301===a.status&&console.warn("This version of le_js is deprecated! Consider upgrading."),m.length>0?h(e,m.shift()):d=!1))}:a.onload=function(){m.length>0?h(e,m.shift()):d=!1};var i=(s?"https://":"http://")+r+"/logs/"+k;a.open("POST",i,!0),a.constructor===XMLHttpRequest&&(a.setRequestHeader("X-Requested-With","XMLHttpRequest"),a.setRequestHeader("Content-type","text/json")),a.send(t)}}}function r(e){var r,o={ssl:!0,catchall:!1,trace:!0,page_info:"never",print:!1,endpoint:null,token:null};if("object"!=typeof e)throw new Error("Invalid parameters for createLogStream()");for(var a in e)o[a]=e[a];if(null===o.token)throw new Error("Token not present.");r=new t(o);var i=function(e){if(r)return r.log.apply(this,arguments);throw new Error("You must call LE.init(...) first.")};return{log:function(){i.apply(this,arguments).level("LOG").send()},warn:function(){i.apply(this,arguments).level("WARN").send()},error:function(){i.apply(this,arguments).level("ERROR").send()},info:function(){i.apply(this,arguments).level("INFO").send()}}}var o={},a=function(e){if(!o.hasOwnProperty(e))throw new Error("Invalid name for logStream");return o[e]},i=function(e){if("string"!=typeof e.name)throw new Error("Name not present.");if(o.hasOwnProperty(e.name))throw new Error("A logger with that name already exists!");return o[e.name]=new r(e),!0},k=function(e){var t={name:"default"};if("object"==typeof e)for(var r in e)t[r]=e[r];else{if("string"!=typeof e)throw new Error("Invalid parameters for init()");t.token=e}return i(t)},n=function(e){"undefined"==typeof e&&(e="default"),delete o[e]};return{init:k,createLogStream:i,to:a,destroy:n,log:function(){for(var e in o)o[e].log.apply(this,arguments)},warn:function(){for(var e in o)o[e].warn.apply(this,arguments)},error:function(){for(var e in o)o[e].error.apply(this,arguments)},info:function(){for(var e in o)o[e].info.apply(this,arguments)}}})},496:function(e,t,r){var o,a,i;!function(k,n){"use strict";a=[r(193)],o=k,i="function"==typeof o?o.apply(t,a):o,!(void 0!==i&&(e.exports=i))}(function(){"use strict";return function(){function e(e){if((e.match(/%s/g)||[]).length>5)throw new Error("app.config value has too many %s to format");return e.replace(/%s/,"{0}").replace(/%s/,"{1}").replace(/%s/,"{2}").replace(/%s/,"{3}").replace(/%s/,"{4}")}var t=window.app=window.app||{};t.logger=t.logger||{};t.DEBUG="true"==="true".toLowerCase(),t.logger.token="d0487a29-c7a9-4526-bda8-f33e8468eab8",t.uris={cdn:{"default":"https://d2rvsmwqptocm.cloudfront.net"+e("/images/%s"),svg:{office:"https://d2rvsmwqptocm.cloudfront.net"+e("/images/o_collection/svg/office/%s.svg"),white:"https://d2rvsmwqptocm.cloudfront.net"+e("/images/o_collection/svg/white/%s.svg"),dark_grey:"https://d2rvsmwqptocm.cloudfront.net"+e("/images/o_collection/svg/dark_grey/%s.svg")}},webapp:{home:"https://www.kidoju.com"+e("/support/"),feed:"https://www.kidoju.com"+e("/support/%s/index.rss"),sitemap:"https://www.kidoju.com"+e("/support/%s/sitemap.xml"),pages:"https://www.kidoju.com"+e("/support/%s/%s"),posts:"https://www.kidoju.com"+e("/support/%s/posts/%s/%s/%s")}}}(),window.app},r(192))},497:function(e,t,r){var o,a,i;!function(k,n){"use strict";a=[r(193)],o=k,i="function"==typeof o?o.apply(t,a):o,!(void 0!==i&&(e.exports=i))}(function(){"use strict";var e=window.app,t=e.logger;/*!
-	     * modernizr v3.0.0-alpha.3
-	     * Build http://v3.modernizr.com/download/#-audio-canvas-csstransforms-csstransitions-draganddrop-hashchange-localstorage-sessionstorage-svg-touchevents-video-webworkers-dontmin
-	     *
-	     * Copyright (c)
-	     *  Faruk Ates
-	     *  Paul Irish
-	     *  Alex Sexton
-	     *  Ryan Seddon
-	     *  Alexander Farkas
-	     *  Patrick Kettner
-	     *  Stu Cox
-	     *  Richard Herrera
-	
-	     * MIT License
-	     */
-return function(e,t,r){function o(e,t){return typeof e===t}function a(){var e,t,r,a,i,k,n;for(var l in g){if(e=[],t=g[l],t.name&&(e.push(t.name.toLowerCase()),t.options&&t.options.aliases&&t.options.aliases.length))for(r=0;r<t.options.aliases.length;r++)e.push(t.options.aliases[r].toLowerCase());for(a=o(t.fn,"function")?t.fn():t.fn,i=0;i<e.length;i++)k=e[i],n=k.split("."),1===n.length?h[n[0]]=a:(!h[n[0]]||h[n[0]]instanceof Boolean||(h[n[0]]=new Boolean(h[n[0]])),h[n[0]][n[1]]=a),w.push((a?"":"no-")+n.join("-"))}}function i(e,t){return!!~(""+e).indexOf(t)}function k(e){return e.replace(/([a-z])-([a-z])/g,function(e,t,r){return t+r.toUpperCase()}).replace(/^-/,"")}function n(e,t){return function(){return e.apply(t,arguments)}}function l(e,t,r){var a;for(var i in e)if(e[i]in t)return r===!1?e[i]:(a=t[e[i]],o(a,"function")?n(a,r||t):a);return!1}function s(e){return e.replace(/([A-Z])/g,function(e,t){return"-"+t.toLowerCase()}).replace(/^ms-/,"-ms-")}function m(){var e=t.body;return e||(e=x("body"),e.fake=!0),e}function d(e,t,r,o){var a,i,k,n,l="modernizr",s=x("div"),d=m();if(parseInt(r,10))for(;r--;)k=x("div"),k.id=o?o[r]:l+(r+1),s.appendChild(k);return a=["&#173;",'<style id="s',l,'">',e,"</style>"].join(""),s.id=l,(d.fake?d:s).innerHTML+=a,d.appendChild(s),d.fake&&(d.style.background="",d.style.overflow="hidden",n=B.style.overflow,B.style.overflow="hidden",B.appendChild(d)),i=t(s,e),d.fake?(d.parentNode.removeChild(d),B.style.overflow=n,B.offsetHeight):s.parentNode.removeChild(s),!!i}function c(t,o){var a=t.length;if("CSS"in e&&"supports"in e.CSS){for(;a--;)if(e.CSS.supports(s(t[a]),o))return!0;return!1}if("CSSSupportsRule"in e){for(var i=[];a--;)i.push("("+s(t[a])+":"+o+")");return i=i.join(" or "),d("@supports ("+i+") { #modernizr { position: absolute; } }",function(e){return"absolute"==getComputedStyle(e,null).position})}return r}function b(e,t,a,n){function l(){m&&(delete C.style,delete C.modElem)}if(n=o(n,"undefined")?!1:n,!o(a,"undefined")){var s=c(e,a);if(!o(s,"undefined"))return s}var m,d,b,p,f;for(C.style||(m=!0,C.modElem=x("modernizr"),C.style=C.modElem.style),b=e.length,d=0;b>d;d++)if(p=e[d],f=C.style[p],i(p,"-")&&(p=k(p)),C.style[p]!==r){if(n||o(a,"undefined"))return l(),"pfx"==t?p:!0;try{C.style[p]=a}catch(g){}if(C.style[p]!=f)return l(),"pfx"==t?p:!0}return l(),!1}function p(e,t,r,a,i){var k=e.charAt(0).toUpperCase()+e.slice(1),n=(e+" "+v.join(k+" ")+k).split(" ");return o(t,"string")||o(t,"undefined")?b(n,t,a,i):(n=(e+" "+y.join(k+" ")+k).split(" "),l(n,t,r))}function f(e,t,o){return p(e,r,r,t,o)}var g=[],u={_version:"3.0.0-alpha.3",_config:{classPrefix:"",enableClasses:!0,enableJSClass:!0,usePrefixes:!0},_q:[],on:function(e,t){var r=this;setTimeout(function(){t(r[e])},0)},addTest:function(e,t,r){g.push({name:e,fn:t,options:r})},addAsyncTest:function(e){g.push({name:null,fn:e})}},h=function(){};h.prototype=u,h=new h,/*!
+!function(o,i){r=function(){return i(o)}.call(t,n,t,e),!(void 0!==r&&(e.exports=r))}(this,function(e){"use strict";function t(t){var n,i=t.trace?(Math.random()+Math.PI).toString(36).substring(2,10):null,a=t.page_info,s=t.token,u=t.print,c=function(){return"undefined"==typeof XDomainRequest?t.ssl:"https:"===e.location.protocol?!0:!1}();n=e.LEENDPOINT?e.LEENDPOINT:"js.logentries.com/v1",n=(c?"https://":"http://")+n+"/logs/"+s;var f=!0,l=[],p=!1,d=!1;if(t.catchall){var g=e.onerror,w=function(e,t,n){return y({error:e,line:n,location:t}).level("ERROR").send(),g?g(e,t,n):!1};e.onerror=w}var h=function(){var t=e.navigator||{doNotTrack:void 0},n=e.screen||{},r=e.location||{};return{url:r.pathname,referrer:document.referrer,screen:{width:n.width,height:n.height},window:{width:e.innerWidth,height:e.innerHeight},browser:{name:t.appName,version:t.appVersion,cookie_enabled:t.cookieEnabled,do_not_track:t.doNotTrack},platform:t.platform}},v=function(){var e=null,t=Array.prototype.slice.call(arguments);if(0===t.length)throw new Error("No arguments!");return e=1===t.length?t[0]:t},y=function(e){var t=v.apply(this,arguments),n={event:t};return"never"!==a&&(d&&"per-entry"!==a||(d=!0,"undefined"==typeof t.screen&&"undefined"==typeof t.browser&&y(h()).level("PAGE").send())),i&&(n.trace=i),{level:function(e){if(u&&"undefined"!=typeof console&&"PAGE"!==e){var t=null;"undefined"!=typeof XDomainRequest&&(t=n.trace+" "+n.event);try{console[e.toLowerCase()].call(console,t||n)}catch(o){console.log(t||n)}}return n.level=e,{send:function(){var e=[],t=JSON.stringify(n,function(t,n){if("undefined"==typeof n)return"undefined";if("object"==typeof n&&null!==n){if(-1!==r(e,n))return"<?>";e.push(n)}return n});p?l.push(t):m(s,t)}}}}};this.log=y;var m=function(e,t){p=!0;var r=o();f&&(r.constructor===XMLHttpRequest?r.onreadystatechange=function(){4===r.readyState&&(r.status>=400?(console.error("Couldn't submit events."),410===r.status&&console.warn("This version of le_js is no longer supported!")):(301===r.status&&console.warn("This version of le_js is deprecated! Consider upgrading."),l.length>0?m(e,l.shift()):p=!1))}:r.onload=function(){l.length>0?m(e,l.shift()):p=!1},r.open("POST",n,!0),r.constructor===XMLHttpRequest&&(r.setRequestHeader("X-Requested-With","XMLHttpRequest"),r.setRequestHeader("Content-type","application/json")),r.overrideMimeType&&r.overrideMimeType("text"),r.send(t))}}function n(e){var n,r={ssl:!0,catchall:!1,trace:!0,page_info:"never",print:!1,endpoint:null,token:null};if("object"!=typeof e)throw new Error("Invalid parameters for createLogStream()");for(var o in e)r[o]=e[o];if(null===r.token)throw new Error("Token not present.");n=new t(r);var i=function(e){if(n)return n.log.apply(this,arguments);throw new Error("You must call LE.init(...) first.")};return{log:function(){i.apply(this,arguments).level("LOG").send()},warn:function(){i.apply(this,arguments).level("WARN").send()},error:function(){i.apply(this,arguments).level("ERROR").send()},info:function(){i.apply(this,arguments).level("INFO").send()}}}var r=function(e,t){for(var n=0;n<e.length;n++)if(t===e[n])return n;return-1},o=function(){return"undefined"!=typeof XDomainRequest?new XDomainRequest:new XMLHttpRequest},i={},a=function(e){if(!i.hasOwnProperty(e))throw new Error("Invalid name for logStream");return i[e]},s=function(e){if("string"!=typeof e.name)throw new Error("Name not present.");if(i.hasOwnProperty(e.name))throw new Error("A logger with that name already exists!");return i[e.name]=new n(e),!0},u=function(e){var t={name:"default"};if("object"==typeof e)for(var n in e)t[n]=e[n];else{if("string"!=typeof e)throw new Error("Invalid parameters for init()");t.token=e}return s(t)},c=function(e){"undefined"==typeof e&&(e="default"),delete i[e]};return{init:u,createLogStream:s,to:a,destroy:c,log:function(){for(var e in i)i[e].log.apply(this,arguments)},warn:function(){for(var e in i)i[e].warn.apply(this,arguments)},error:function(){for(var e in i)i[e].error.apply(this,arguments)},info:function(){for(var e in i)i[e].info.apply(this,arguments)}}})},521:function(e,t,n){var r,o,i;!function(a,s){"use strict";o=[n(200),n(202),n(204)],r=a,i="function"==typeof r?r.apply(t,o):r,!(void 0!==i&&(e.exports=i))}(function(){"use strict";return function(){function e(e){for(var t=0,n=e,r=/%[sdj]/;"string"==typeof n&&r.test(n);)n=n.replace(r,"{"+t+"}"),t++;return n}function t(){return Array.prototype.slice.call(arguments).join("/").replace(/([^:])[\/]{2,}/g,"$1/")}var n=window.app=window.app||{},r=new window.Logger("app.config");n.DEBUG="true"==="true".toLowerCase(),n.locales=JSON.parse('["en","fr"]'),window.Logger.prototype.level=parseInt("0",10)||0,n.logger.level=parseInt("0",10)||0,n.logger.token="d0487a29-c7a9-4526-bda8-f33e8468eab8",n.facebook={clientID:"628502177236998"},n.uris={cdn:{icons:t("https://d2rvsmwqptocm.cloudfront.net",e("/images/o_collection/svg/office/%s.svg"))},webapp:{home:"https://www.kidoju.com"+e("/support/"),locale:"https://www.kidoju.com"+e("/support/%s"),feed:"https://www.kidoju.com"+e("/support/%s/index.rss"),sitemap:"https://www.kidoju.com"+e("/support/%s/sitemap.xml"),pages:"https://www.kidoju.com"+e("/support/%s/%s"),posts:"https://www.kidoju.com"+e("/support/%s/posts/%s/%s/%s")}},r.info({message:"app configured"})}(),window.app},n(201))},522:function(e,t,n){var r,o,i;!function(a,s){"use strict";o=[n(204)],r=a,i="function"==typeof r?r.apply(t,o):r,!(void 0!==i&&(e.exports=i))}(function(){"use strict";var e=window.app,t=new window.Logger("app.support");return function(e,t,n){function r(e,t){return typeof e===t}function o(){var e,t,n,o,i,a,s;for(var u in m)if(m.hasOwnProperty(u)){if(e=[],t=m[u],t.name&&(e.push(t.name.toLowerCase()),t.options&&t.options.aliases&&t.options.aliases.length))for(n=0;n<t.options.aliases.length;n++)e.push(t.options.aliases[n].toLowerCase());for(o=r(t.fn,"function")?t.fn():t.fn,i=0;i<e.length;i++)a=e[i],s=a.split("."),1===s.length?A[s[0]]=o:(!A[s[0]]||A[s[0]]instanceof Boolean||(A[s[0]]=new Boolean(A[s[0]])),A[s[0]][s[1]]=o),b.push((o?"":"no-")+s.join("-"))}}function i(e){return e.replace(/([a-z])-([a-z])/g,function(e,t,n){return t+n.toUpperCase()}).replace(/^-/,"")}function a(){return"function"!=typeof t.createElement?t.createElement(arguments[0]):x?t.createElementNS.call(t,"http://www.w3.org/2000/svg",arguments[0]):t.createElement.apply(t,arguments)}function s(e){var t=R.className,n=A._config.classPrefix||"";if(x&&(t=t.baseVal),A._config.enableJSClass){var r=new RegExp("(^|\\s)"+n+"no-js(\\s|$)");t=t.replace(r,"$1"+n+"js$2")}A._config.enableClasses&&(t+=" "+n+e.join(" "+n),x?R.className.baseVal=t:R.className=t)}function u(e,t){if("object"==typeof e)for(var n in e)O(e,n)&&u(n,e[n]);else{e=e.toLowerCase();var r=e.split("."),o=A[r[0]];if(2===r.length&&(o=o[r[1]]),"undefined"!=typeof o)return A;t="function"==typeof t?t():t,1===r.length?A[r[0]]=t:(!A[r[0]]||A[r[0]]instanceof Boolean||(A[r[0]]=new Boolean(A[r[0]])),A[r[0]][r[1]]=t),s([(t&&t!==!1?"":"no-")+r.join("-")]),A._trigger(e,t)}return A}function c(){var e=t.body;return e||(e=a(x?"svg":"body"),e.fake=!0),e}function f(e,n,r,o){var i,s,u,f,l="modernizr",p=a("div"),d=c();if(parseInt(r,10))for(;r--;)u=a("div"),u.id=o?o[r]:l+(r+1),p.appendChild(u);return i=a("style"),i.type="text/css",i.id="s"+l,(d.fake?d:p).appendChild(i),d.appendChild(p),i.styleSheet?i.styleSheet.cssText=e:i.appendChild(t.createTextNode(e)),p.id=l,d.fake&&(d.style.background="",d.style.overflow="hidden",f=R.style.overflow,R.style.overflow="hidden",R.appendChild(d)),s=n(p,e),d.fake?(d.parentNode.removeChild(d),R.style.overflow=f,R.offsetHeight):p.parentNode.removeChild(p),!!s}function l(e,t){return!!~(""+e).indexOf(t)}function p(e,t){return function(){return e.apply(t,arguments)}}function d(e,t,n){var o;for(var i in e)if(e[i]in t)return n===!1?e[i]:(o=t[e[i]],r(o,"function")?p(o,n||t):o);return!1}function g(e){return e.replace(/([A-Z])/g,function(e,t){return"-"+t.toLowerCase()}).replace(/^ms-/,"-ms-")}function w(t,r){var o=t.length;if("CSS"in e&&"supports"in e.CSS){for(;o--;)if(e.CSS.supports(g(t[o]),r))return!0;return!1}if("CSSSupportsRule"in e){for(var i=[];o--;)i.push("("+g(t[o])+":"+r+")");return i=i.join(" or "),f("@supports ("+i+") { #modernizr { position: absolute; } }",function(e){return"absolute"===getComputedStyle(e,null).position})}return n}function h(e,t,o,s){function u(){f&&(delete P.style,delete P.modElem)}if(s=r(s,"undefined")?!1:s,!r(o,"undefined")){var c=w(e,o);if(!r(c,"undefined"))return c}for(var f,p,d,g,h,v=["modernizr","tspan"];!P.style;)f=!0,P.modElem=a(v.shift()),P.style=P.modElem.style;for(d=e.length,p=0;d>p;p++)if(g=e[p],h=P.style[g],l(g,"-")&&(g=i(g)),P.style[g]!==n){if(s||r(o,"undefined"))return u(),"pfx"===t?g:!0;try{P.style[g]=o}catch(y){}if(P.style[g]!==h)return u(),"pfx"===t?g:!0}return u(),!1}function v(e,t,n,o,i){var a=e.charAt(0).toUpperCase()+e.slice(1),s=(e+" "+C.join(a+" ")+a).split(" ");return r(t,"string")||r(t,"undefined")?h(s,t,o,i):(s=(e+" "+_.join(a+" ")+a).split(" "),d(s,t,n))}function y(e,t,r){return v(e,n,n,t,r)}var m=[],E={_version:"3.2.0",_config:{classPrefix:"",enableClasses:!0,enableJSClass:!0,usePrefixes:!0},_q:[],on:function(e,t){var n=this;setTimeout(function(){t(n[e])},0)},addTest:function(e,t,n){m.push({name:e,fn:t,options:n})},addAsyncTest:function(e){m.push({name:null,fn:e})}},A=function(){};A.prototype=E,A=new A,A.addTest("blobconstructor",function(){try{return!!new Blob}catch(e){return!1}},{aliases:["blob-constructor"]}),A.addTest("history",function(){var t=navigator.userAgent;return-1===t.indexOf("Android 2.")&&-1===t.indexOf("Android 4.0")||-1===t.indexOf("Mobile Safari")||-1!==t.indexOf("Chrome")||-1!==t.indexOf("Windows Phone")?e.history&&"pushState"in e.history:!1}),A.addTest("svg",!!t.createElementNS&&!!t.createElementNS("http://www.w3.org/2000/svg","svg").createSVGRect),A.addTest("filereader",!!(e.File&&e.FileList&&e.FileReader)),A.addTest("localstorage",function(){var e="modernizr";try{return localStorage.setItem(e,e),localStorage.removeItem(e),!0}catch(t){return!1}}),A.addTest("sessionstorage",function(){var e="modernizr";try{return sessionStorage.setItem(e,e),sessionStorage.removeItem(e),!0}catch(t){return!1}}),A.addTest("atobbtoa","atob"in e&&"btoa"in e,{aliases:["atob-btoa"]}),A.addTest("webworkers","Worker"in e);var b=[],T=E._config.usePrefixes?" -webkit- -moz- -o- -ms- ".split(" "):[];E._prefixes=T;var O;!function(){var e={}.hasOwnProperty;O=r(e,"undefined")||r(e.call,"undefined")?function(e,t){return t in e&&r(e.constructor.prototype[t],"undefined")}:function(t,n){return e.call(t,n)}}();var R=t.documentElement,x="svg"===R.nodeName.toLowerCase();/*!
 	         {
-	         "name": "Local Storage",
-	         "property": "localstorage",
-	         "caniuse": "namevalue-storage",
-	         "tags": ["storage"],
-	         "knownBugs": [],
-	         "notes": [],
-	         "warnings": [],
-	         "polyfills": [
-	         "joshuabell-polyfill",
-	         "cupcake",
-	         "storagepolyfill",
-	         "amplifyjs",
-	         "yui-cacheoffline"
-	         ]
+	         "name" : "HTML5 Audio Element",
+	         "property": "audio",
+	         "tags" : ["html5", "audio", "media"]
 	         }
 	         !*/
-h.addTest("localstorage",function(){var e="modernizr";try{return localStorage.setItem(e,e),localStorage.removeItem(e),!0}catch(t){return!1}}),/*!
-	         {
-	         "name": "Session Storage",
-	         "property": "sessionstorage",
-	         "tags": ["storage"],
-	         "polyfills": ["joshuabell-polyfill", "cupcake", "sessionstorage"]
-	         }
-	         !*/
-h.addTest("sessionstorage",function(){var e="modernizr";try{return sessionStorage.setItem(e,e),sessionStorage.removeItem(e),!0}catch(t){return!1}}),/*!
-	         {
-	         "name": "SVG",
-	         "property": "svg",
-	         "caniuse": "svg",
-	         "tags": ["svg"],
-	         "authors": ["Erik Dahlstrom"],
-	         "polyfills": [
-	         "svgweb",
-	         "raphael",
-	         "amplesdk",
-	         "canvg",
-	         "svg-boilerplate",
-	         "sie",
-	         "dojogfx",
-	         "fabricjs"
-	         ]
-	         }
-	         !*/
-h.addTest("svg",!!t.createElementNS&&!!t.createElementNS("http://www.w3.org/2000/svg","svg").createSVGRect);var w=[],x=function(){return"function"!=typeof t.createElement?t.createElement(arguments[0]):t.createElement.apply(t,arguments)};/*!
+A.addTest("audio",function(){var e=a("audio"),t=!1;try{(t=!!e.canPlayType)&&(t=new Boolean(t),t.ogg=e.canPlayType('audio/ogg; codecs="vorbis"').replace(/^no$/,""),t.mp3=e.canPlayType('audio/mpeg; codecs="mp3"').replace(/^no$/,""),t.opus=e.canPlayType('audio/ogg; codecs="opus"').replace(/^no$/,""),t.wav=e.canPlayType('audio/wav; codecs="1"').replace(/^no$/,""),t.m4a=(e.canPlayType("audio/x-m4a;")||e.canPlayType("audio/aac;")).replace(/^no$/,""))}catch(n){}return t}),/*!
 	         {
 	         "name": "Canvas",
 	         "property": "canvas",
@@ -72,27 +18,16 @@ h.addTest("svg",!!t.createElementNS&&!!t.createElementNS("http://www.w3.org/2000
 	         "polyfills": ["flashcanvas", "excanvas", "slcanvas", "fxcanvas"]
 	         }
 	         !*/
-h.addTest("canvas",function(){var e=x("canvas");return!(!e.getContext||!e.getContext("2d"))}),/*!
+A.addTest("canvas",function(){var e=a("canvas");return!(!e.getContext||!e.getContext("2d"))}),/*!
 	         {
-	         "name": "Drag & Drop",
-	         "property": "draganddrop",
-	         "caniuse": "dragndrop",
-	         "knownBugs": ["Mobile browsers like Android, iOS < 6, and Firefox OS technically support the APIs, but don't expose it to the end user, resulting in a false positive."],
-	         "notes": [{
-	         "name": "W3C spec",
-	         "href": "http://www.w3.org/TR/2010/WD-html5-20101019/dnd.html"
-	         }],
-	         "polyfills": ["dropfile", "moxie", "fileapi"]
+	         "name": "Canvas text",
+	         "property": "canvastext",
+	         "caniuse": "canvas-text",
+	         "tags": ["canvas", "graphics"],
+	         "polyfills": ["canvastext"]
 	         }
 	         !*/
-h.addTest("draganddrop",function(){var e=x("div");return"draggable"in e||"ondragstart"in e&&"ondrop"in e}),/*!
-	         {
-	         "name" : "HTML5 Audio Element",
-	         "property": "audio",
-	         "tags" : ["html5", "audio", "media"]
-	         }
-	         !*/
-h.addTest("audio",function(){var e=x("audio"),t=!1;try{(t=!!e.canPlayType)&&(t=new Boolean(t),t.ogg=e.canPlayType('audio/ogg; codecs="vorbis"').replace(/^no$/,""),t.mp3=e.canPlayType("audio/mpeg;").replace(/^no$/,""),t.opus=e.canPlayType('audio/ogg; codecs="opus"').replace(/^no$/,""),t.wav=e.canPlayType('audio/wav; codecs="1"').replace(/^no$/,""),t.m4a=(e.canPlayType("audio/x-m4a;")||e.canPlayType("audio/aac;")).replace(/^no$/,""))}catch(r){}return t}),/*!
+A.addTest("canvastext",function(){return A.canvas===!1?!1:"function"==typeof a("canvas").getContext("2d").fillText}),/*!
 	         {
 	         "name": "HTML5 Video",
 	         "property": "video",
@@ -111,61 +46,24 @@ h.addTest("audio",function(){var e=x("audio"),t=!1;try{(t=!!e.canPlayType)&&(t=n
 	         ]
 	         }
 	         !*/
-h.addTest("video",function(){var e=x("video"),t=!1;try{(t=!!e.canPlayType)&&(t=new Boolean(t),t.ogg=e.canPlayType('video/ogg; codecs="theora"').replace(/^no$/,""),t.h264=e.canPlayType('video/mp4; codecs="avc1.42E01E"').replace(/^no$/,""),t.webm=e.canPlayType('video/webm; codecs="vp8, vorbis"').replace(/^no$/,""),t.vp9=e.canPlayType('video/webm; codecs="vp9"').replace(/^no$/,""),t.hls=e.canPlayType('application/x-mpegURL; codecs="avc1.42E01E"').replace(/^no$/,""))}catch(r){}return t});var A="Moz O ms Webkit",v=u._config.usePrefixes?A.split(" "):[];u._cssomPrefixes=v;var y=u._config.usePrefixes?A.toLowerCase().split(" "):[];u._domPrefixes=y;var z={elem:x("modernizr")};h._q.push(function(){delete z.elem});var C={style:z.elem.style};h._q.unshift(function(){delete C.style});var B=t.documentElement;u.testAllProps=p,u.testAllProps=f,/*!
+A.addTest("video",function(){var e=a("video"),t=!1;try{(t=!!e.canPlayType)&&(t=new Boolean(t),t.ogg=e.canPlayType('video/ogg; codecs="theora"').replace(/^no$/,""),t.h264=e.canPlayType('video/mp4; codecs="avc1.42E01E"').replace(/^no$/,""),t.webm=e.canPlayType('video/webm; codecs="vp8, vorbis"').replace(/^no$/,""),t.vp9=e.canPlayType('video/webm; codecs="vp9"').replace(/^no$/,""),t.hls=e.canPlayType('application/x-mpegURL; codecs="avc1.42E01E"').replace(/^no$/,""))}catch(n){}return t}),/*!
 	         {
-	         "name": "CSS Transforms",
-	         "property": "csstransforms",
-	         "caniuse": "transforms2d",
-	         "tags": ["css"]
-	         }
-	         !*/
-h.addTest("csstransforms",function(){return-1===navigator.userAgent.indexOf("Android 2.")&&f("transform","scale(1)",!0)}),/*!
-	         {
-	         "name": "CSS Transitions",
-	         "property": "csstransitions",
-	         "caniuse": "css-transitions",
-	         "tags": ["css"]
-	         }
-	         !*/
-h.addTest("csstransitions",f("transition","all",!0)),/*!
-	         {
-	         "name": "Web Workers",
-	         "property": "webworkers",
-	         "caniuse" : "webworkers",
-	         "tags": ["performance", "workers"],
+	         "name": "Inline SVG",
+	         "property": "inlinesvg",
+	         "caniuse": "svg-html5",
+	         "tags": ["svg"],
 	         "notes": [{
-	         "name": "W3C Reference",
-	         "href": "http://www.w3.org/TR/workers/"
+	         "name": "Test page",
+	         "href": "http://paulirish.com/demo/inline-svg"
 	         }, {
-	         "name": "HTML5 Rocks article",
-	         "href": "http://www.html5rocks.com/en/tutorials/workers/basics/"
-	         }, {
-	         "name": "MDN documentation",
-	         "href": "https://developer.mozilla.org/en-US/docs/Web/Guide/Performance/Using_web_workers"
+	         "name": "Test page and results",
+	         "href": "http://codepen.io/eltonmesquita/full/GgXbvo/"
 	         }],
-	         "polyfills": ["fakeworker", "html5shims"]
+	         "polyfills": ["inline-svg-polyfill"],
+	         "knownBugs": ["False negative on some Chromia browsers."]
 	         }
 	         !*/
-h.addTest("webworkers","Worker"in e);var E=u._config.usePrefixes?" -webkit- -moz- -o- -ms- ".split(" "):[];u._prefixes=E;var Q=u.testStyles=d;/*!
-	         {
-	         "name": "Touch Events",
-	         "property": "touchevents",
-	         "caniuse" : "touch",
-	         "tags": ["media", "attribute"],
-	         "notes": [{
-	         "name": "Touch Events spec",
-	         "href": "http://www.w3.org/TR/2013/WD-touch-events-20130124/"
-	         }],
-	         "warnings": [
-	         "Indicates if the browser supports the Touch Events spec, and does not necessarily reflect a touchscreen device"
-	         ],
-	         "knownBugs": [
-	         "False-positive on some configurations of Nokia N900",
-	         "False-positive on some BlackBerry 6.0 builds – https://github.com/Modernizr/Modernizr/issues/372#issuecomment-3112695"
-	         ]
-	         }
-	         !*/
-h.addTest("touchevents",function(){var r;if("ontouchstart"in e||e.DocumentTouch&&t instanceof DocumentTouch)r=!0;else{var o=["@media (",E.join("touch-enabled),("),"heartz",")","{#modernizr{top:9px;position:absolute}}"].join("");Q(o,function(e){r=9===e.offsetTop})}return r});var I=function(e){function r(t,r){var a;return t?(r&&"string"!=typeof r||(r=x(r||"div")),t="on"+t,a=t in r,!a&&o&&(r.setAttribute||(r=x("div")),r.setAttribute(t,""),a="function"==typeof r[t],r[t]!==e&&(r[t]=e),r.removeAttribute(t)),a):!1}var o=!("onblur"in t.documentElement);return r}(),F=u.hasEvent=I;/*!
+A.addTest("inlinesvg",function(){var e=a("div");return e.innerHTML="<svg/>","http://www.w3.org/2000/svg"===("undefined"!=typeof SVGRect&&e.firstChild&&e.firstChild.namespaceURI)});var N=function(){function e(e,t){var o;return e?(t&&"string"!=typeof t||(t=a(t||"div")),e="on"+e,o=e in t,!o&&r&&(t.setAttribute||(t=a("div")),t.setAttribute(e,""),o="function"==typeof t[e],t[e]!==n&&(t[e]=n),t.removeAttribute(e)),o):!1}var r=!("onblur"in t.documentElement);return e}();E.hasEvent=N,/*!
 	         {
 	         "name": "Hashchange event",
 	         "property": "hashchange",
@@ -184,4 +82,60 @@ h.addTest("touchevents",function(){var r;if("ontouchstart"in e||e.DocumentTouch&
 	         ]
 	         }
 	         !*/
-h.addTest("hashchange",function(){return F("hashchange",e)===!1?!1:t.documentMode===r||t.documentMode>7}),a(),delete u.addTest,delete u.addAsyncTest;for(var J=0;J<h._q.length;J++)h._q[J]();e.Modernizr=h}(window,document),e.support=window.Modernizr,t.info({message:"browser tested by Modernizr",module:"app.support"}),window.app},r(192))}});
+A.addTest("hashchange",function(){return N("hashchange",e)===!1?!1:t.documentMode===n||t.documentMode>7}),E._l={},E.on=function(e,t){this._l[e]||(this._l[e]=[]),this._l[e].push(t),A.hasOwnProperty(e)&&setTimeout(function(){A._trigger(e,A[e])},0)},E._trigger=function(e,t){if(this._l[e]){var n=this._l[e];setTimeout(function(){var e,r;for(e=0;e<n.length;e++)(r=n[e])(t)},0),delete this._l[e]}},A._q.push(function(){E.addTest=u}),/*!
+	         {
+	         "name": "SVG as an <img> tag source",
+	         "property": "svgasimg",
+	         "caniuse" : "svg-img",
+	         "tags": ["svg"],
+	         "authors": ["Chris Coyier"],
+	         "notes": [{
+	         "name": "HTML5 Spec",
+	         "href": "http://www.w3.org/TR/html5/embedded-content-0.html#the-img-element"
+	         }]
+	         }
+	         !*/
+A.addTest("svgasimg",t.implementation.hasFeature("http://www.w3.org/TR/SVG11/feature#Image","1.1")),/*!
+	         {
+	         "name": "Data URI",
+	         "property": "datauri",
+	         "caniuse": "datauri",
+	         "tags": ["url"],
+	         "builderAliases": ["url_data_uri"],
+	         "async": true,
+	         "notes": [{
+	         "name": "Wikipedia article",
+	         "href": "http://en.wikipedia.org/wiki/Data_URI_scheme"
+	         }],
+	         "warnings": ["Support in Internet Explorer 8 is limited to images and linked resources like CSS files, not HTML files"]
+	         }
+	         !*/
+A.addAsyncTest(function(){function e(){var e=new Image;e.onerror=function(){u("datauri",!0),A.datauri=new Boolean(!0),A.datauri.over32kb=!1},e.onload=function(){u("datauri",!0),A.datauri=new Boolean(!0),A.datauri.over32kb=1===e.width&&1===e.height};for(var t="R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==";t.length<33e3;)t="\r\n"+t;e.src="data:image/gif;base64,"+t}-1!==navigator.userAgent.indexOf("MSIE 7.")&&setTimeout(function(){u("datauri",!1)},10);var t=new Image;t.onerror=function(){u("datauri",!1)},t.onload=function(){1===t.width&&1===t.height?e():u("datauri",!1)},t.src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw=="});var L=E.testStyles=f;/*!
+	         {
+	         "name": "Touch Events",
+	         "property": "touchevents",
+	         "caniuse" : "touch",
+	         "tags": ["media", "attribute"],
+	         "notes": [{
+	         "name": "Touch Events spec",
+	         "href": "http://www.w3.org/TR/2013/WD-touch-events-20130124/"
+	         }],
+	         "warnings": [
+	         "Indicates if the browser supports the Touch Events spec, and does not necessarily reflect a touchscreen device"
+	         ],
+	         "knownBugs": [
+	         "False-positive on some configurations of Nokia N900",
+	         "False-positive on some BlackBerry 6.0 builds – https://github.com/Modernizr/Modernizr/issues/372#issuecomment-3112695"
+	         ]
+	         }
+	         !*/
+A.addTest("touchevents",function(){var n;if("ontouchstart"in e||e.DocumentTouch&&t instanceof e.DocumentTouch)n=!0;else{var r=["@media (",T.join("touch-enabled),("),"heartz",")","{#modernizr{top:9px;position:absolute}}"].join("");L(r,function(e){n=9===e.offsetTop})}return n});var j="Moz O ms Webkit",C=E._config.usePrefixes?j.split(" "):[];E._cssomPrefixes=C;var S=function(t){var r,o=T.length,i=e.CSSRule;if("undefined"==typeof i)return n;if(!t)return!1;if(t=t.replace(/^@/,""),r=t.replace(/-/g,"_").toUpperCase()+"_RULE",r in i)return"@"+t;for(var a=0;o>a;a++){var s=T[a],u=s.toUpperCase()+"_"+r;if(u in i)return"@-"+s.toLowerCase()+"-"+t}return!1};E.atRule=S;var _=E._config.usePrefixes?j.toLowerCase().split(" "):[];E._domPrefixes=_;var k={elem:a("modernizr")};A._q.push(function(){delete k.elem});var P={style:k.elem.style};A._q.unshift(function(){delete P.style}),E.testAllProps=v,E.testAllProps=y,/*!
+	         {
+	         "name": "CSS Transforms",
+	         "property": "csstransforms",
+	         "caniuse": "transforms2d",
+	         "tags": ["css"]
+	         }
+	         !*/
+A.addTest("csstransforms",function(){return-1===navigator.userAgent.indexOf("Android 2.")&&y("transform","scale(1)",!0)});var U=E.prefixed=function(e,t,n){return 0===e.indexOf("@")?S(e):(-1!==e.indexOf("-")&&(e=i(e)),t?v(e,t,n):v(e,"pfx"))},I=U("URL",e,!1);I=I&&e[I],A.addTest("bloburls",I&&"revokeObjectURL"in I&&"createObjectURL"in I),o(),delete E.addTest,delete E.addAsyncTest;for(var M=0;M<A._q.length;M++)A._q[M]();e.Modernizr=A}(window,document),e.support=window.Modernizr,t.info({message:"browser tested by Modernizr"}),window.app},n(201))}});
+//# sourceMappingURL=init.bundle.js.map

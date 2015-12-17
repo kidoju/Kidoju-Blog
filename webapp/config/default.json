@@ -16,5 +16,6 @@
             "title": "Support en Français",
             "text": "Les blogs, les vidéos et les discussions sur les réseaux sociaux."
         }
-    }
+    },
+    "locales": [ "en", "fr" ]
 }

@@ -2,6 +2,7 @@
     "application": {
         "name": "Kidoju.Blog"
     },
+    "head" : "<meta name=\"p:domain_verify\" content=\"00a8ab216c21a6cd727d5d50881ceb1e\"/>",
     "home": {
         "title": "Kidoju Support",
         "description": "Kidoju Support Options",

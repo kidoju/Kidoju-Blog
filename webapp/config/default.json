@@ -1,5 +1,17 @@
 {
     "application": {
         "name": "Kidoju.Blog"
+    },
+    "home": {
+        "title": "Kidoju Support",
+        "description": "Kidoju Support Options",
+        "uk": {
+            "title": "English Support",
+            "text": "Blogs, videos and social network discussions."
+        },
+        "fr": {
+            "title": "Support en Français",
+            "text": "Les blogs, les vidéos et les discussions sur les réseaux sociaux."
+        }
     }
 }

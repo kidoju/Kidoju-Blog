@@ -2,22 +2,22 @@
 
 <main>
     <div id="home-wrapper">
-        <div class="jumbotron"><h1 class="hidden"><%= title %></h1></div>
+        <div class="jumbotron"><h1><%= description %></h1></div>
         <div class="container k-content">
             <div class="row">
-                <div class="col-sm-6">
+                <div class="col-xs-6">
                     <a href="<%= format(config.uris.webapp.pages, 'en', '') %>">
                         <div class="uk flag"></div>
                     </a>
-                    <h2>English Support</h2>
-                    <p>Kidoju's support comprises blog posts, Youtube videos and social network links.</p>
+                    <h2><%= content.uk.title %></h2>
+                    <p><%= content.uk.text %></p>
                 </div>
-                <div class="col-sm-6">
+                <div class="col-xs-6">
                     <a href="<%= format(config.uris.webapp.pages, 'fr', '') %>">
                         <div class="fr flag"></div>
                     </a>
-                    <h2>Support en Français</h2>
-                    <p>Le support de Kidoju comprend des articles de blog, des vidéos YouTube et des liens vers les réseaux sociaux.</p>
+                    <h2><%= content.fr.title %></h2>
+                    <p><%= content.fr.text %></p>
                 </div>
             </div>
         </div>
@@ -25,7 +25,7 @@
 </main>
 
 <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
-<script src="<%= urljoin(config.uris.webapp.public, 'assets/common.bundle.js') %>"></script>
-<script src="<%= urljoin(config.uris.webapp.public, 'assets/home.bundle.js') %>"></script>
+<script src="<%= urljoin(config.uris.webapp.root, config.uris.webapp.public, 'assets/common.bundle.js') %>"></script>
+<script src="<%= urljoin(config.uris.webapp.root, config.uris.webapp.public, 'assets/home.bundle.js') %>"></script>
 
 <% include footer.ejs %>

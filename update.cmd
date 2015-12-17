@@ -74,7 +74,6 @@ ATTRIB +R .\webapp\*.* /S
 ATTRIB -R .\webapp\cache\*.*
 ATTRIB -R .\webapp\config\*.json
 ATTRIB -R .\webapp\public\assets\*.*
-ATTRIB -R .\webapp\views\home.ejs
 
 REM ------------------------------------------------------------
 REM Root files

@@ -1,6 +1,7 @@
 {
     "application": {
-        "name": "Kidoju.Blog"
+        "name": "Kidoju.Blog",
+        "siteName": "Kidoju Support"
     },
     "head" : "<meta name=\"p:domain_verify\" content=\"00a8ab216c21a6cd727d5d50881ceb1e\"/>",
     "home": {

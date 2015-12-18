@@ -41,7 +41,7 @@
             "pages": "/support/%s/%s",
             "ping": "/support/ping",
             "posts": "/support/%s/posts/%s/%s/%s",
-            "public": "/support/",
+            "public": "/support/%s",
             "sitemap": "/support/%s/sitemap.xml"
         }
     }

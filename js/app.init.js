@@ -4,13 +4,13 @@
  */
 
 /* jshint browser: true */
-/* globals require: false, process: false */
+/* globals require: false, __NODE_ENV__: false */
 
 if (typeof(require) === 'function') {
     require('./window.assert');
     require('./window.logger');
     require('./app.logger.js');
-    require('./app.config.jsx?env=' + process.env.NODE_ENV);
+    require('./app.config.jsx?env=' + __NODE_ENV__);
     require('./app.support.js');
 }
 

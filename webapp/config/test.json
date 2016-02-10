@@ -45,7 +45,7 @@
             "sitemap": "/support/%s/sitemap.xml"
         },
         "webpack": {
-            "root": "http://localhost:3000/assets/"
+            "root": "http://localhost:3000/support/assets/"
         }
     }
 }

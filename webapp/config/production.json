@@ -43,6 +43,9 @@
             "posts": "/support/%s/posts/%s/%s/%s",
             "public": "/support/%s",
             "sitemap": "/support/%s/sitemap.xml"
+        },
+        "webpack": {
+            "root": "https://www.kidoju.com/support/assets/"
         }
     }
 }

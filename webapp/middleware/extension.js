@@ -13,8 +13,8 @@ var Url = require('url');
 var config = require('../config');
 var SEPARATOR = '\\/';
 var webapp = {
-    feed: util.format(config.get('uris:webapp:feed').replace(new RegExp(SEPARATOR, 'g'), SEPARATOR), '[a-z]{2}') + '$',
-    sitemap: util.format(config.get('uris:webapp:sitemap').replace(new RegExp(SEPARATOR, 'g'), SEPARATOR), '[a-z]{2}') + '$'
+    feed: '^' + util.format(config.get('uris:webapp:feed').replace(new RegExp(SEPARATOR, 'g'), SEPARATOR), '[a-z]{2}') + '$',
+    sitemap: '^(' + util.format(config.get('uris:webapp:sitemap').replace(new RegExp(SEPARATOR, 'g'), SEPARATOR), '[a-z]{2})?') + '$'
 };
 
 /**
@@ -26,7 +26,7 @@ var webapp = {
  */
 module.exports = function (req, res, next) {
     var pathname = Url.parse(req.originalUrl).pathname;
-    if (/\/[^\/\.]+\.[\w]{1,5}$/i.test(pathname) && !/\.html?$/i.test(pathname) &&
+    if (/\/[^\/\.]+\.[\w]+$/i.test(pathname) && !/\.html?$/i.test(pathname) &&
         !(new RegExp(webapp.feed)).test(pathname) && !(new RegExp(webapp.sitemap)).test(pathname)) {
         // If pathname ends with a file extension (images, stylesheets, scripts, ...), spare bandwidth by returning an empty error for missing assets
         res

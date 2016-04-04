@@ -19,7 +19,7 @@
         "index": "../cache/%s.json"
     },
     "github": {
-        "repository": "Kidoju/support.kidoju.com",
+        "repository": "kidoju/support.kidoju.com",
         "branch": "master",
         "language": "%s/",
         "menu": "menu.json",

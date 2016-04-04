@@ -16,7 +16,7 @@ var webapp = {
     feed: '^' + util.format(config.get('uris:webapp:feed').replace(new RegExp(SEPARATOR, 'g'), SEPARATOR), '[a-z]{2}') + '$',
     sitemap: '^' + util.format(config.get('uris:webapp:sitemap').replace(new RegExp(SEPARATOR, 'g'), SEPARATOR), '([a-z]{2})?') + '$'
 };
-// A bit ugly, but it works!
+// A bit ugly, but it works with Memba-Blog and Kidoju-Blog
 webapp.sitemap = webapp.sitemap.replace(SEPARATOR + '(', '(' + SEPARATOR);
 
 /**

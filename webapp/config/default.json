@@ -18,5 +18,23 @@
             "text": "Les blogs, les vidéos et les discussions sur les réseaux sociaux."
         }
     },
-    "locales": [ "en", "fr" ]
+    "locales": [ "en", "fr" ],
+    "uris" : {
+        "cdn": {
+            "root":  "https://cdn.kidoju.com",
+            "icons": "/images/o_collection/svg/office/%s.svg"
+        },
+        "webapp": {
+            "feed": "/support/%s/index.rss",
+            "home": "/support/",
+            "hook": "/support/hook",
+            "locale": "/support/%s",
+            "logger": "/support/logger",
+            "pages": "/support/%s/%s",
+            "ping": "/support/ping",
+            "posts": "/support/%s/posts/%s/%s/%s",
+            "public": "/support/%s",
+            "sitemap": "/support/%s/sitemap.xml"
+        }
+    }
 }

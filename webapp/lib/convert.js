@@ -146,6 +146,10 @@ module.exports = {
         var matches = path.match(RX_SITE_URL_2_LANGUAGE);
         if (Array.isArray(matches) && matches.length > 1) {
             return matches[1];
+        } else {
+            // TODO: remove
+            console.log('----------------> ' + path);
+            console.log('----------------> ' + RX_SITE_URL_2_LANGUAGE);
         }
     },
 

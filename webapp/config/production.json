@@ -21,7 +21,7 @@
     "github": {
         "repository": "kidoju/support.kidoju.com",
         "branch": "master",
-        "language": "%s/",
+        "language": "kidoju/%s/",
         "menu": "menu.json",
         "pages": "pages",
         "posts": "posts",

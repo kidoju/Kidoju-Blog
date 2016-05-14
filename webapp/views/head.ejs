@@ -1,0 +1,70 @@
+<head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# article: http://ogp.me/ns/article#">
+    <title><%= title %></title>
+    <%// meta data %>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="<%= author %>">
+    <meta name="description" content="<%= description %>">
+    <meta name="keywords" content="<%= keywords %>">
+    <% // Facebook %>
+    <meta property="fb:app_id" content="<%= config.facebook.clientID %>" />
+    <% // Open graph protocol - https://developers.facebook.com/docs/sharing/webmasters#markup %>
+    <meta property="og:description" content="<%= description %>" />
+    <meta property="og:image" content="<%= image %>" />
+    <meta property="og:site_name" content="<%= config.application.siteName %>" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="<%= title %>" />
+    <% if (typeof site_url === 'string' ) { %>
+    <meta property="og:url" content="<%= site_url %>" />
+    <link rel="canonical" href="<%= site_url %>" />
+    <% } %>
+    <% // Twitter card - https://dev.twitter.com/cards/markup %>
+    <meta property="twitter:card" content="summary">
+    <meta property="twitter:description" content="<%= description %>">
+    <meta property="twitter:image" content="<%= image %>">
+    <meta property="twitter:site" content="@<%= config.twitter.account %>">
+    <meta property="twitter:title" content="<%= title %>">
+    <% // Favicon and apple touch icons %>
+    <link rel="shortcut icon" href="<%= url.join(config.uris.webapp.root, format(config.uris.webapp.public, 'favicon.ico')) %>">
+    <link rel="apple-touch-icon" sizes="57x57" href="<%= url.join(config.uris.webapp.root, format(config.uris.webapp.public, 'apple-touch-icon-57x57.png')) %>">
+    <link rel="apple-touch-icon" sizes="72x72" href="<%= url.join(config.uris.webapp.root, format(config.uris.webapp.public, 'apple-touch-icon-72x72.png')) %>">
+    <link rel="apple-touch-icon" sizes="76x76" href="<%= url.join(config.uris.webapp.root, format(config.uris.webapp.public, 'apple-touch-icon-76x76.png')) %>">
+    <link rel="apple-touch-icon" sizes="114x114" href="<%= url.join(config.uris.webapp.root, format(config.uris.webapp.public, 'apple-touch-icon-114x114.png')) %>">
+    <link rel="apple-touch-icon" sizes="120x120" href="<%= url.join(config.uris.webapp.root, format(config.uris.webapp.public, 'apple-touch-icon-120x120.png')) %>">
+    <link rel="apple-touch-icon" sizes="144x144" href="<%= url.join(config.uris.webapp.root, format(config.uris.webapp.public, 'apple-touch-icon-144x144.png')) %>">
+    <link rel="apple-touch-icon" sizes="152x152" href="<%= url.join(config.uris.webapp.root, format(config.uris.webapp.public, 'apple-touch-icon-152x152.png')) %>">
+    <link rel="apple-touch-icon" sizes="180x180" href="<%= url.join(config.uris.webapp.root, format(config.uris.webapp.public, 'apple-touch-icon-180x180.png')) %>">
+    <% // Robots: do not index/archive search pages %>
+    <% if (Array.isArray(results)) { %>
+    <meta name="robots" content="noindex, noarchive">
+    <% } %>
+    <% // Config head in ./webapp/config/default.json, for example to add site verification tags %>
+    <% if (typeof config.head === 'string' ) { %>
+    <%- config.head %>
+    <% } %>
+    <% // IE10 viewport hack for Surface/desktop Windows 8 bug %>
+    <!--script src="//getbootstrap.com/assets/js/ie10-viewport-bug-workaround.js"></script-->
+    <% // HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries %>
+    <!--[if lt IE 9]>
+    <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <script src="<%= url.join(config.uris.webpack.root, 'init.bundle.js') + '?v=' + config.application.version %>"></script>
+    <script src="https://code.jquery.com/jquery-1.11.3.min.js" integrity="sha256-7LkWEzqTdpEfELxcZZlS6wAx5Ff13zZ83lYO2/ujj7g=" crossorigin="anonymous"></script>
+    <style>
+        html,body{
+            width:100%;
+            margin:0;
+            overflow:auto;
+        }
+        body>div.k-loading-image{
+            top:0;
+            height:100%;
+            width:100%;
+            background-color:#CCCCCC;
+            position:absolute;
+            z-index: 2000;
+        }
+    </style>
+</head>

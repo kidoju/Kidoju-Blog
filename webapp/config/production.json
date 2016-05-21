@@ -32,7 +32,7 @@
             "root": "https://www.kidoju.com"
         },
         "webpack": {
-            "root": "https://www.kidoju.com/support/assets/"
+            "root": "https://www.kidoju.com/support/build/"
         }
     }
 }

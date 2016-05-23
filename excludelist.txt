@@ -3,7 +3,7 @@
 \config\development.json
 \config\production.json
 \config\test.json
-\public\assets\
+\public\build\
 \public\apple-touch-icon.png
 \public\apple-touch-icon-57x57.png
 \public\apple-touch-icon-72x72.png

@@ -15,17 +15,10 @@
     "twitter": {
         "account": "kidoju"
     },
-    "db": {
-        "index": "../cache/%s.json"
-    },
     "github": {
         "repository": "Memba/Memba-Blog-TestData",
         "branch": "master",
-        "language": "kidoju/%s/",
-        "menu": "menu.json",
-        "pages": "pages",
-        "posts": "posts",
-        "markdown": "%s.md"
+        "language": "kidoju/%s/"
     },
     "uris" : {
         "webapp": {

@@ -19,6 +19,15 @@
         }
     },
     "locales": [ "en", "fr" ],
+    "db": {
+        "index": "../cache/%s.json"
+    },
+    "github": {
+        "menu": "menu.json",
+        "pages": "pages",
+        "posts": "posts",
+        "markdown": "%s.md"
+    },
     "uris" : {
         "cdn": {
             "root":  "https://cdn.kidoju.com",

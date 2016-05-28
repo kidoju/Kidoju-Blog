@@ -1,24 +1,24 @@
 {
     "debug": true,
-    "level": 0,
     "express": {
         "port"  : 3000
     },
-    "logentries": {
-        "browser": {
-            "token": "e78bac0b-377a-49e2-ad91-20bb4ec7cedc"
-        }
-    },
     "facebook": {
         "clientID": "893127317460877"
-    },
-    "twitter": {
-        "account": "kidoju"
     },
     "github": {
         "repository": "Memba/Memba-Blog-TestData",
         "branch": "master",
         "language": "kidoju/%s/"
+    },
+    "level": 0,
+    "logentries": {
+        "browser": {
+            "token": "e78bac0b-377a-49e2-ad91-20bb4ec7cedc"
+        }
+    },
+    "twitter": {
+        "account": "kidoju"
     },
     "uris" : {
         "webapp": {

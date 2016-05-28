@@ -1,24 +1,24 @@
 {
     "debug": false,
-    "level": 0,
     "express": {
         "port"  : 3000
     },
-    "logentries": {
-        "browser": {
-            "token": "d0487a29-c7a9-4526-bda8-f33e8468eab8"
-        }
-    },
     "facebook": {
         "clientID": "892459787527630"
-    },
-    "twitter": {
-        "account": "kidoju"
     },
     "github": {
         "repository": "kidoju/support.kidoju.com",
         "branch": "master",
         "language": "%s/"
+    },
+    "level": 0,
+    "logentries": {
+        "browser": {
+            "token": "d0487a29-c7a9-4526-bda8-f33e8468eab8"
+        }
+    },
+    "twitter": {
+        "account": "kidoju"
     },
     "uris" : {
         "webapp": {

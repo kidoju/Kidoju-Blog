@@ -10,16 +10,18 @@ REM Graphics
 REM ------------------------------------------------------------
 
 ATTRIB -R .\graphics\*
-COPY ..\..\Kidoju\Kidoju.Webapp\graphics\*.ai .\graphics /Y
-ATTRIB +R .\graphics\*.ai
+REM COPY ..\..\Kidoju\Kidoju.Webapp\graphics\*.ai .\graphics /Y
+REM ATTRIB +R .\graphics\*.ai
 COPY ..\..\Kidoju\Kidoju.Webapp\graphics\*.ico .\graphics /Y
 ATTRIB +R .\graphics\*.ico
 COPY ..\..\Kidoju\Kidoju.Webapp\graphics\*.png .\graphics /Y
 ATTRIB +R .\graphics\*.png
+REM COPY ..\..\Kidoju\Kidoju.Webapp\graphics\*.psd .\graphics /Y
+REM ATTRIB +R .\graphics\*.psd
 COPY ..\..\Kidoju\Kidoju.Webapp\graphics\*.svg .\graphics /Y
 ATTRIB +R .\graphics\*.svg
-COPY ..\..\Kidoju\Kidoju.Webapp\graphics\*.ttf .\graphics /Y
-ATTRIB +R .\graphics\*.ttf
+REM COPY ..\..\Kidoju\Kidoju.Webapp\graphics\*.ttf .\graphics /Y
+REM ATTRIB +R .\graphics\*.ttf
 
 ATTRIB -R .\webapp\public\apple*.png
 COPY .\graphics\apple*.png .\webapp\public /Y

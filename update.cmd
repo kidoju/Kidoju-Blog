@@ -127,3 +127,8 @@ REM webpack
 ATTRIB -R .\webpack.config.js
 COPY ..\..\Memba\Memba.Blog\webpack.config.js .\ /Y
 ATTRIB +R .\webpack.config.js
+
+REM selenium
+ATTRIB -R .\wdio.conf.js
+COPY ..\..\Memba\Memba.Blog\wdio.conf.js .\ /Y
+ATTRIB +R .\wdio.conf.js

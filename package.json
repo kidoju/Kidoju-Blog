@@ -56,7 +56,7 @@
     "grunt-mocha": "^1.0.2",
     "grunt-mocha-test": "^0.13.2",
     "grunt-webdriver": "^2.0.1",
-    "grunt-webpack": "^1.0.14",
+    "grunt-webpack": "^1.0.15",
     "json-loader": "^0.5.4",
     "less": "^2.7.1",
     "less-loader": "^2.2.3",

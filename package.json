@@ -44,7 +44,7 @@
     "request": "^2.78.0"
   },
   "devDependencies": {
-    "autoprefixer": "^6.5.2",
+    "autoprefixer": "^6.5.3",
     "bundle-loader": "^0.5.4",
     "chai": "^3.5.0",
     "css-loader": "^0.25.0",

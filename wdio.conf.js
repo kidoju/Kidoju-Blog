@@ -63,14 +63,14 @@ if (/^win/.test(process.platform)) {
             // 'phantomjs.binary.path': path.join(__dirname, './node_modules/phantomjs-prebuilt/lib/phantom/bin/phantomjs.exe')
         }
         /*
-         {
-             maxInstances: 1,
-             browserName: 'operablink'
-             operaOptions: {
-                 // binary: 'C:\\Program Files (x86)\\Opera\\launcher.exe'
-                 binary: 'C:\\Program Files (x86)\\Opera\\42.0.2393.94\\opera.exe'
+        {
+            maxInstances: 1,
+            browserName: 'operablink'
+            operaOptions: {
+                // binary: 'C:\\Program Files (x86)\\Opera\\launcher.exe'
+                binary: 'C:\\Program Files (x86)\\Opera\\42.0.2393.94\\opera.exe'
             }
-         }
+        }
          */
 
     ];

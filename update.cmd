@@ -109,6 +109,11 @@ ATTRIB -R .\LICENSE-GPLv3
 COPY ..\..\Memba\Memba.Blog\LICENSE-GPLv3 .\ /Y
 ATTRIB +R .\LICENSE-GPLv3
 
+REM postcss.config.js
+ATTRIB -R .\postcss.config.js
+COPY ..\..\Memba\Memba.Blog\postcss.config.js .\ /Y
+ATTRIB +R .\postcss.config.js
+
 REM setup.cmd
 ATTRIB -R .\setup.cmd
 COPY ..\..\Memba\Memba.Blog\setup.cmd .\ /Y

@@ -11,6 +11,9 @@
         "branch": "master",
         "language": "%s/"
     },
+    "google": {
+        "tagManager": "GTM-PH3KJJ"
+    },
     "level": 2,
     "slack": {
         "channel": "#weberrors",

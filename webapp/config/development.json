@@ -11,6 +11,9 @@
         "branch": "master",
         "language": "kidoju/%s/"
     },
+    "google": {
+        "tagManager": "GTM-PH3KJJ"
+    },
     "level": 0,
     "slack": {
         "channel": "#devtest",

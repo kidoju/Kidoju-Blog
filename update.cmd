@@ -23,13 +23,13 @@ ATTRIB +R .\graphics\*.svg
 REM COPY ..\..\Kidoju\Kidoju.Webapp\graphics\*.ttf .\graphics /Y
 REM ATTRIB +R .\graphics\*.ttf
 
-ATTRIB -R .\webapp\public\apple*.png
-COPY .\graphics\apple*.png .\webapp\public /Y
-ATTRIB +R .\webapp\public\apple*.png
+REM ATTRIB -R .\webapp\public\apple*.png
+REM COPY .\graphics\apple*.png .\webapp\public /Y
+REM ATTRIB +R .\webapp\public\apple*.png
 
-ATTRIB -R .\webapp\public\favicon.ico
-COPY .\graphics\favicon.ico .\webapp\public /Y
-ATTRIB +R .\webapp\public\favicon.ico
+REM ATTRIB -R .\webapp\public\favicon.ico
+REM COPY .\graphics\favicon.ico .\webapp\public /Y
+REM ATTRIB +R .\webapp\public\favicon.ico
 
 REM ------------------------------------------------------------
 REM Javascript files

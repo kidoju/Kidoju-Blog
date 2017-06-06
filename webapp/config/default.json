@@ -29,6 +29,9 @@
     },
     "images": ["https://www.kidoju.com/support/build/47120e35b461638cf2038d63dece4402.jpg"],
     "locales": [ "en", "fr" ],
+    "slack": {
+        "webhook": "https://hooks.slack.com/services/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"
+    },
     "uris" : {
         "cdn": {
             "root":  "https://cdn.kidoju.com",

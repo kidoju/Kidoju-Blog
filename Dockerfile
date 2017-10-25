@@ -11,7 +11,7 @@ MAINTAINER jlchereau
 ENV NODE_ENV production
 
 # Best practice documented at https://github.com/nodejs/docker-node/blob/master/docs/BestPractices.md#global-npm-dependencies
-ENV NPM_CONFIG_PREFIX=/home/node/.npm-global
+# ENV NPM_CONFIG_PREFIX=/home/node/.npm-global
 
 # Install prerequisites (especially to build mongoose)
 # RUN apt-get update && apt-get install -y build-essential python
@@ -22,7 +22,7 @@ RUN mkdir -p /usr/src/
 COPY . /usr/src/
 WORKDIR /usr/src/
 
-# Upgrade npm
+# Upgrade npm - required because anything between v5.2 and v5.5 does not work properly
 # RUN npm install -g npm  - does not work: https://github.com/npm/npm/issues/15558
 RUN yarn global add npm
 

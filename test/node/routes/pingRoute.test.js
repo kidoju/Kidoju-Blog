@@ -15,6 +15,7 @@ var request = require('supertest');
 
 var config = require('../../../webapp/config');
 var app = config.get('uris:webapp:root');
+var version = require('../../../package.json').version;
 
 
 describe('Ping Route', function () {
@@ -31,7 +32,7 @@ describe('Ping Route', function () {
                 .get(config.get('uris:webapp:ping'))
                 .expect(200)
                 .expect('Content-Type', /json/)
-                .expect({ ping: 'OK' })
+                .expect({ ping: 'OK', version: version })
                 .end(done);
         });
     });

@@ -86,8 +86,8 @@
     "supertest": "^3.0.0",
     "url-loader": "^0.6.2",
     "wdio-mocha-framework": "^0.5.11",
-    "wdio-selenium-standalone-service": "0.0.9",
-    "webdriverio": "4.8.0",
+    "wdio-selenium-standalone-service": "^0.0.9",
+    "webdriverio": "^4.9.8",
     "webpack": "^3.8.1",
     "webpack-dev-server": "^2.9.4"
   },

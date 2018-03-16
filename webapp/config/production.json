@@ -1,8 +1,5 @@
 {
     "debug": false,
-    "express": {
-        "port"  : 3000
-    },
     "facebook": {
         "clientID": "892459787527630"
     },
@@ -11,17 +8,11 @@
         "branch": "master",
         "language": "%s/"
     },
-    "google": {
-        "tagManager": "GTM-PH3KJJ"
-    },
     "level": 2,
     "slack": {
         "channels": {
             "weberrors": "#weberrors"
         }
-    },
-    "twitter": {
-        "account": "kidoju"
     },
     "uris" : {
         "webapp": {

@@ -6,11 +6,19 @@
     "db": {
         "index": "../cache/%s.json"
     },
+    "express": {
+        "port"  : 3000
+    },
     "github": {
         "menu": "menu.json",
         "pages": "pages",
         "posts": "posts",
         "markdown": "%s.md"
+    },
+    "google": {
+        "tagManager": {
+            "web": "GTM-PH3KJJ"
+        }
     },
     "head" : "<meta name=\"p:domain_verify\" content=\"00a8ab216c21a6cd727d5d50881ceb1e\"/>",
     "home": {
@@ -31,6 +39,9 @@
     "locales": [ "en", "fr" ],
     "slack": {
         "webhook": "https://hooks.slack.com/services/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"
+    },
+    "twitter": {
+        "account": "kidoju"
     },
     "uris" : {
         "cdn": {

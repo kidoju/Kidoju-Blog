@@ -15,7 +15,6 @@
  */
 
 var path = require('path');
-var util = require('util');
 var webpack = require('webpack');
 var config = require('./webapp/config');
 var cleanPlugin = require('./web_modules/less-plugin');
@@ -64,11 +63,13 @@ var commonsChunkPlugin =
 /**
  * BundleAnalyzerPlugin
  */
+/*
 var BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 var bundleAnalyzerPlugin = new BundleAnalyzerPlugin({
     analyzerMode: 'static'
     // analyzerPort: 7000 <-- Fatal error: listen EADDRINUSE 127.0.0.1:7000
 });
+*/
 
 /**
  * Webpack configuration
@@ -91,23 +92,14 @@ module.exports = {
     externals: { // CDN modules
         jquery: 'jQuery'
     },
-    output: {
-        // Unfortunately it is not possible to specialize output directories
-        // See https://github.com/webpack/webpack/issues/882
-        path: path.join(__dirname, '/webapp/public/build'),
-        publicPath: config.get('uris:webpack:root'),
-        filename: '[name].bundle.js?v=' + pkg.version,
-        chunkFilename: '[name].chunk.js?v=' + pkg.version
-    },
-    resolve: {
-        modules: [
-            path.resolve('.'),
-            path.resolve('./js/vendor/kendo'), // required since Kendo UI 2016.1.112
-            'node_modules'
-        ]
-    },
     module: {
         rules: [
+            {
+                test: /\.es6$/,
+                use: [
+                    { loader: 'babel-loader' }
+                ]
+            },
             {
                 // Do not put a $ at the end of the test regex
                 test: /\.jsx/, // see ./web_modules/jsx-loader
@@ -165,9 +157,43 @@ module.exports = {
             }
         ]
     },
+    // Webpack 4 optimization
+    // https://github.com/webpack/webpack/issues/6701
+    /*
+    optimization: {
+        minimize: true,
+        splitChunks: { // https://gist.github.com/sokra/1522d586b8e5c0f5072d7565c2bee693
+            cacheGroups: {
+                common: {
+                    chunks: 'initial',
+                    // enforce: true,
+                    filename: '[name].bundle.js?v=' + pkg.version,
+                    name: 'common',
+                    test: /[\\/]js[\\/]/
+                    // reuseExistingChunk: true
+                }
+            }
+        }
+    },
+    */
+    output: {
+        // Unfortunately it is not possible to specialize output directories
+        // See https://github.com/webpack/webpack/issues/882
+        path: path.join(__dirname, '/webapp/public/build'),
+        publicPath: config.get('uris:webpack:root'),
+        filename: '[name].bundle.js?v=' + pkg.version,
+        chunkFilename: '[name].chunk.js?v=' + pkg.version
+    },
     plugins: [
         definePlugin,
         commonsChunkPlugin
         // bundleAnalyzerPlugin
-    ]
+    ],
+    resolve: {
+        modules: [
+            path.resolve('.'),
+            path.resolve('./js/vendor/kendo'), // required since Kendo UI 2016.1.112
+            'node_modules'
+        ]
+    }
 };

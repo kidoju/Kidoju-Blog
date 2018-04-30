@@ -52,6 +52,7 @@
         "webapp": {
             "error": "/support/%s/error",
             "feed": "/support/%s/rss.xml",
+            "form": "/support/form",
             "home": "/support/",
             "hook": "/support/hook",
             "locale": "/support/%s",

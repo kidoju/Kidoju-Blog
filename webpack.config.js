@@ -86,15 +86,16 @@ module.exports = {
         init: './js/app.init.js',
         // One entry per view
         error: './js/app.error.es6',
-        home: './js/app.home.js',
-        page: './js/app.page.js',
+        home: './js/app.home.es6',
+        page: './js/app.page.es6',
         post: './js/app.post.js',
-        search: './js/app.search.js'
+        search: './js/app.search.es6'
     },
     externals: {
         // CDN modules
         jquery: 'jQuery'
     },
+    mode: process.env.NODE_ENV === 'production' ? 'production' : 'development',
     module: {
         rules: [
             {
@@ -196,7 +197,6 @@ module.exports = {
             }
         ]
     },
-    mode: process.env.NODE_ENV === 'production' ? 'production' : 'development',
     optimization: {
         minimize: true,
         splitChunks: {

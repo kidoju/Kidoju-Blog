@@ -6,12 +6,12 @@
 /* jshint browser: true, jquery: true */
 /* globals define: false, require: false */
 
-require('../styles/app.page.post.less');
+require('../../styles/page.post.less');
 
 (function (f, define) {
     'use strict';
     define([
-        './common/window.assert.es6',
+        '../common/window.assert.es6',
         './common/window.logger.es6',
         './app.logger',
         './app.i18n',

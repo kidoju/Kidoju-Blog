@@ -13,7 +13,7 @@ import '../app.i18n';
 import '../app.common';
 import '../app.menu';
 
-import '../../styles/app.page.home.less';
+import '../../styles/page.home.less';
 
 const {
     app: { i18n },

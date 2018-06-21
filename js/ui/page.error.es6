@@ -12,7 +12,7 @@ import '../app.logger';
 import '../app.i18n';
 import '../app.common';
 
-import '../../styles/app.page.error.less';
+import '../../styles/page.error.less';
 
 const {
     app: { i18n },

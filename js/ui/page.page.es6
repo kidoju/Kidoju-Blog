@@ -14,7 +14,7 @@ import '../app.common';
 import '../app.menu';
 import '../vendor/kendo/kendo.validator';
 
-import '../../styles/app.page.page.less';
+import '../../styles/page.page.less';
 
 const {
     app: { i18n },

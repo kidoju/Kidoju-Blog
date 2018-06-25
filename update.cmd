@@ -70,6 +70,7 @@ REM ------------------------------------------------------------
 
 ATTRIB -R .\webapp\*.* /S
 XCOPY ..\..\Memba\Memba.Blog\webapp .\webapp /C /E /I /R /Y /EXCLUDE:excludelist.txt
+COPY ..\..\Kidoju\Kidoju.Webapp\webapp\public\manifest.json .\webapp\public /Y
 COPY ..\..\Kidoju\Kidoju.Webapp\webapp\views\common.ejs .\webapp\views /Y
 COPY ..\..\Kidoju\Kidoju.Webapp\webapp\views\head.ejs .\webapp\views /Y
 COPY ..\..\Kidoju\Kidoju.Webapp\webapp\views\logo.ejs .\webapp\views /Y

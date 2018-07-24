@@ -10,11 +10,18 @@ const utils = require('../lib/utils.es6');
 
 let mongoose;
 try {
-    // eslint-disable-next-line global-require
+    // eslint-disable-next-line global-require,import/no-unresolved,node/no-missing-require
     mongoose = require('mongoose');
 } catch (ex) {
+    class ValidationError extends Error {
+        constructor() {
+            super();
+            this.name = 'ValidationError';
+            this.status = 400;
+        }
+    }
     // This is a generic error handler which can be used without mongoose
-    mongoose = { Error: { ValidationError: Error } };
+    mongoose = { Error: { ValidationError } };
 }
 
 let config;

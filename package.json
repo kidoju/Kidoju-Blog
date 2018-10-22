@@ -88,7 +88,6 @@
     "grunt-contrib-uglify": "^4.0.0",
     "grunt-eslint": "^21.0.0",
     "grunt-jscs": "^3.0.1",
-    "grunt-mocha": "^1.1.0",
     "grunt-mocha-test": "^0.13.3",
     "grunt-nsp": "^2.3.1",
     "grunt-stylelint": "^0.10.1",

@@ -36,17 +36,17 @@ REM Javascript files
 REM ------------------------------------------------------------
 
 REM Copy Javascript files
-XCOPY ..\..\Memba\Memba.Blog\js .\js /C /E /I /R /Y
-ATTRIB +R .\js\*.* /S
+XCOPY ..\..\Memba\Memba.Blog\src\js .\src\js /C /E /I /R /Y
+ATTRIB +R .\src\js\*.* /S
 
 REM ------------------------------------------------------------
 REM Styles
 REM ------------------------------------------------------------
 
 REM Copy styles
-XCOPY ..\..\Memba\Memba.Blog\styles .\styles /C /E /I /R /Y
-COPY .\graphics\kidoju.home.jpg .\styles\images\jumbotron.jpg
-ATTRIB +R .\styles\*.* /S
+XCOPY ..\..\Memba\Memba.Blog\src\styles .\src\styles /C /E /I /R /Y
+COPY .\graphics\kidoju.home.jpg .\src\styles\images\jumbotron.jpg
+ATTRIB +R .\src\styles\*.* /S
 
 REM ------------------------------------------------------------
 REM Tests

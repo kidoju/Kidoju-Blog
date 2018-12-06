@@ -8,21 +8,21 @@
 
 if (typeof(require) === 'function') {
     // Load styles
-    require('../styles/bootstrap.custom.less');
-    require('../styles/vendor/kendo/web/kendo.common.less');
-    require('../styles/fonts/kidoju.less');
-    require('../styles/app.page.common.less');
-    require('../styles/kidoju.tools.less'); // <-- Consider merging with app.page.common.less
+    require('../../styles/themes/bootstrap.custom.less');
+    require('../../styles/vendor/kendo/web/kendo.common.less');
+    require('../../styles/fonts/kidoju.less');
+    require('../../styles/ui/app.common.less');
+    require('../../styles/dialogs/kidoju.tools.less'); // <-- Consider merging with app.page.common.less
 
     // Bootstrap files (toggled navbar)
-    require('./vendor/bootstrap/collapse.js');
-    require('./vendor/bootstrap/dropdown.js');
+    require('../vendor/bootstrap/collapse.js');
+    require('../vendor/bootstrap/dropdown.js');
 }
 
 (function (f, define) {
     'use strict';
     define([
-        './vendor/kendo/kendo.core',
+        '../vendor/kendo/kendo.core',
         './vendor/kendo/kendo.data',
         './vendor/kendo/kendo.binder',
         './vendor/kendo/kendo.popup',

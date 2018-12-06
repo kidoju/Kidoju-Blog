@@ -1,0 +1,45 @@
+/**
+ * Copyright (c) 2013-2018 Memba Sarl. All rights reserved.
+ * Sources at https://github.com/Memba
+ */
+
+// Load common styles
+import '../../styles/themes/bootstrap.custom.less';
+import '../../styles/vendor/kendo/web/kendo.common.less';
+import '../../styles/fonts/kidoju.less';
+import '../../styles/ui/app.page.common.less';
+import '../../styles/dialogs/kidoju.tools.less'; // <-- Consider merging with app.page.common.less
+
+// https://github.com/benmosher/eslint-plugin-import/issues/1097
+// eslint-disable-next-line import/extensions, import/no-unresolved
+import $ from 'jquery';
+import 'kendo.binder';
+import 'kendo.dropdownlist';
+// TODO ---------------------> Review app.* files
+import '../app.i18n';
+import '../app.logger';
+import '../app.theme';
+import viewModel from './app.viewmodel.es6';
+import CONSTANTS from '../common/window.constants.es6';
+import Logger from '../common/window.logger.es6';
+
+const { i18n } = window.app;
+const { bind, mobile, ui } = window.kendo;
+const logger = new Logger('app.common');
+
+/**
+ * Wait until document is ready to initialize UI
+ */
+$(document).one(CONSTANTS.LOADED, () => {
+    // LOADED occurs after document ready event
+
+    // Init using kendo ui and kendo mobile ui (scollers)
+    // kendo.init('body', kendo.ui, kendo.mobile.ui);
+    bind('footer', viewModel, ui, mobile.ui);
+
+    // Log page readiness
+    logger.debug({
+        message: `common elements initialized in ${i18n.locale()}`,
+        method: CONSTANTS.LOADED
+    });
+});

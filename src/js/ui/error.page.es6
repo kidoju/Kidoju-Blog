@@ -11,7 +11,7 @@ import '../app/app.common.es6';
 import Logger from '../common/window.logger.es6';
 
 // Import page styles
-import '../../styles/ui/page.error.less';
+import '../../styles/ui/error.page.less';
 
 const { history, location } = window;
 const { i18n } = window.app;

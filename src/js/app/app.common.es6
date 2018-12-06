@@ -7,7 +7,7 @@
 import '../../styles/themes/bootstrap.custom.less';
 import '../../styles/vendor/kendo/web/kendo.common.less';
 import '../../styles/fonts/kidoju.less';
-import '../../styles/ui/app.page.common.less';
+import '../../styles/ui/app.common.less';
 import '../../styles/dialogs/kidoju.tools.less'; // <-- Consider merging with app.page.common.less
 
 // https://github.com/benmosher/eslint-plugin-import/issues/1097

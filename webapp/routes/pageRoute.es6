@@ -7,7 +7,6 @@ const assert = require('assert');
 const parallel = require('async/parallel');
 const qs = require('qs');
 const ApplicationError = require('../lib/applicationError.es6');
-const convert = require('../lib/convert');
 const logger = require('../lib/logger.es6');
 const markdown = require('../lib/markdown');
 const utils = require('../lib/utils.es6');
@@ -29,8 +28,8 @@ module.exports = {
 
         // Log the request
         logger.info({
-            message: 'requesting a page',
-            module: 'routes/pageRoute',
+            message: 'requesting a blog post',
+            module: 'routes/blogRoute',
             method: 'getHtmlPage',
             request: req
         });
@@ -49,14 +48,14 @@ module.exports = {
                 callback => {
                     menuModel.getMenu(language, callback);
                 },
-                // get page
+                // get blog post(s)
                 callback => {
-                    const path = convert.getPagePath(language, req.params.slug);
-                    indexModel.findByPath(
-                        path,
-                        req.params.slug ? undefined : req.query,
-                        callback
-                    );
+                    // eslint-disable-next-line camelcase
+                    const site_url = new URL(
+                        req.originalUrl,
+                        config.uris.webapp.root
+                    ).href;
+                    indexModel.findBySiteUrl(site_url, req.query, callback);
                 },
                 // Get grouped categories
                 callback => {
@@ -81,9 +80,8 @@ module.exports = {
                     responses[1].length > 0
                 ) {
                     let data;
-
-                    if (req.params.slug || utils.isEmptyObject(req.query)) {
-                        // single page
+                    if (req.params.slug) {
+                        // single post
                         const { text } = responses[1][0];
                         data = utils.deepExtend({}, responses[1][0], {
                             authors: responses[3],
@@ -107,9 +105,9 @@ module.exports = {
                             'Content-Type': 'text/html; charset=utf-8'
                         })
                             .vary('Accept-Encoding') // See http://blog.maxcdn.com/accept-encoding-its-vary-important/
-                            .render('page', data);
+                            .render('post', data);
                     } else {
-                        // list of pages and posts
+                        // list of posts
                         data = {
                             author: res.__('meta.author'),
                             authors: responses[3],
@@ -132,8 +130,10 @@ module.exports = {
                             site_url: `${
                                 new URL(
                                     format(
-                                        config.uris.webapp.pages,
+                                        config.uris.webapp.posts,
                                         language,
+                                        req.params.year || '',
+                                        req.params.month || '',
                                         ''
                                     ),
                                     config.uris.webapp.root

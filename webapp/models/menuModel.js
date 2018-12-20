@@ -3,47 +3,46 @@
  * Sources at https://github.com/Memba
  */
 
-/* jshint node: true */
+const convert = require('../lib/convert');
+const github = require('../lib/github');
+const ApplicationError = require('../lib/applicationError.es6');
 
-'use strict';
-
-var convert = require('../lib/convert');
-var github = require('../lib/github');
-var ApplicationError = require('../lib/applicationError.es6');
-var cache = {};
+let cache = {};
 
 module.exports = {
-
     /**
      * Get menu for designated language
      * @param language
      * @param callback
      */
-    getMenu : function (language, callback) {
+    getMenu(language, callback) {
         // TODO: check available locales
-        var menu = cache[language];
+        let menu = cache[language];
         if (menu) {
             callback(null, menu);
         } else {
-            github.getContent(convert.getMenuPath(language), function (error, response) {
-                if (!error && response) {
-                    var buf = Buffer.from(response.content, 'base64');
-                    var content = buf.toString();
-                    var menu = JSON.parse(content);
-                    cache[language] = menu;
-                    callback(null, menu);
-                } else {
-                    callback(error); // TODO: || not found
+            github.getContent(
+                convert.getMenuPath(language),
+                (error, response) => {
+                    if (!error && response) {
+                        const buf = Buffer.from(response.content, 'base64');
+                        const content = buf.toString();
+                        menu = JSON.parse(content);
+                        cache[language] = menu;
+                        callback(null, menu);
+                    } else {
+                        // TODO Consider a better message than 500
+                        callback(error || new ApplicationError(500));
+                    }
                 }
-            });
+            );
         }
     },
 
     /**
      * Reset cache
      */
-    resetCache: function () {
+    resetCache() {
         cache = {};
     }
-
 };

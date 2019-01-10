@@ -11,8 +11,9 @@ const { URL } = require('url');
 const { format } = require('util');
 const logger = require('@wdio/logger').default('en.post.test');
 const config = require('../../webapp/config/index.es6');
+
 // Enhance browser with our Ex functions
-require('./selenium.es6');
+require('../_misc/selenium.util.es6');
 
 const LOCALE = 'en';
 const LIST_TITLE = 'Search results';

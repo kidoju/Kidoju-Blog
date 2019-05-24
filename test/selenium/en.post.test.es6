@@ -114,8 +114,8 @@ describe('English posts', () => {
         it('it should land on the home page with a choice of languages', () => {
             expect($('html').getAttribute('lang')).to.equal(LOCALE);
             expect($('nav.navbar').isExisting()).to.be.true;
-            expect($('div.uk.flag').isExisting()).to.be.true;
-            expect($('div.fr.flag').isExisting()).to.be.true;
+            expect($('div.app-uk.app-flag').isExisting()).to.be.true;
+            expect($('div.app-fr.app-flag').isExisting()).to.be.true;
         });
 
         it('it should find and navigate blog', () => {
@@ -124,54 +124,54 @@ describe('English posts', () => {
             browser.waitForReadyStateEx('complete', WAIT);
             expect(browser.getUrl()).to.equal(webapp.posts);
             expect($('html').getAttribute('lang')).to.equal(LOCALE);
-            expect($('div.page-header span').getText()).to.equal(LIST_TITLE);
+            expect($('div#id-main-title span').getText()).to.equal(LIST_TITLE);
         });
 
         it('it should find and navigate calendar', () => {
             $('body>div.k-loading-image').waitForDisplayed(WAIT, true);
             // click the first item in the calendar side list
             $(
-                'section.group:nth-child(1) a.list-group-item:first-child'
+                'section.app-group:nth-child(1) a.list-group-item:first-child'
             ).click();
             browser.waitForReadyStateEx('complete', WAIT);
             expect(browser.getUrl()).to.equal(webapp.calendar);
             expect($('html').getAttribute('lang')).to.equal(LOCALE);
-            expect($('div.page-header span').getText()).to.equal(LIST_TITLE);
+            expect($('div#id-main-title span').getText()).to.equal(LIST_TITLE);
         });
 
         it('it should find and navigate categories', () => {
             $('body>div.k-loading-image').waitForDisplayed(WAIT, true);
             // click the first item in the categories side list
             $(
-                'section.group:nth-child(2) a.list-group-item:first-child'
+                'section.app-group:nth-child(2) a.list-group-item:first-child'
             ).click();
             browser.waitForReadyStateEx('complete', WAIT);
             expect(browser.getUrl()).to.equal(webapp.categories);
             expect($('html').getAttribute('lang')).to.equal(LOCALE);
-            expect($('div.page-header span').getText()).to.equal(LIST_TITLE);
+            expect($('div#id-main-title span').getText()).to.equal(LIST_TITLE);
         });
 
         it('it should find and navigate authors', () => {
             $('body>div.k-loading-image').waitForDisplayed(WAIT, true);
             // click the first item in the authors side list
             $(
-                'section.group:nth-child(3) a.list-group-item:first-child'
+                'section.app-group:nth-child(3) a.list-group-item:first-child'
             ).click();
             browser.waitForReadyStateEx('complete', WAIT);
             expect(browser.getUrl()).to.equal(webapp.author);
             expect($('html').getAttribute('lang')).to.equal(LOCALE);
-            expect($('div.page-header span').getText()).to.equal(LIST_TITLE);
+            expect($('div#id-main-title span').getText()).to.equal(LIST_TITLE);
         });
 
         it('it should display a post', () => {
             $('body>div.k-loading-image').waitForDisplayed(WAIT, true);
             // Click the first item in search results
             // $('ul.media-list>li.media:first-child h4>a').click();
-            $('li.media:first-child h4>a').click();
+            $('li.media:first-child h5>a').click();
             browser.waitForReadyStateEx('complete', WAIT);
             expect(browser.getUrl()).to.equal(webapp.first);
             expect($('html').getAttribute('lang')).to.equal(LOCALE);
-            expect($('div.page-header span').getText()).to.equal(FIRST_TITLE);
+            expect($('div#id-main-title span').getText()).to.equal(FIRST_TITLE);
         });
     });
 });

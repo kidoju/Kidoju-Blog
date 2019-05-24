@@ -1,20 +1,20 @@
 <% // navbar and corresponding windows %>
 <header class="d-print-none" role="banner">
     <% // Navigation bar at the top of the page %>
-    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark" role="navigation">
+    <nav class="navbar navbar-expand-md fixed-top py-1 pl-0 pr-2" role="navigation">
         <a class="navbar-brand" href="/"><% include logo.ejs %></a>
         <button type="button" class="navbar-toggler collapsed" data-toggle="collapse" data-target=".navbar-collapse" aria-controls=".navbar-collapse" aria-expanded="false" aria-label="<%- __('header.navbar.toggle') %>">
             <span class="navbar-toggler-icon" title="<%- __('header.navbar.toggle') %>"></span>
         </button>
         <% // Section of the navigation bar which collapses on small devices %>
-        <div class="navbar-collapse collapse">
-            <ul class="navbar-nav mr-auto">
+        <div class="navbar-collapse collapse justify-content-end">
+            <ul class="navbar-nav">
                 <% for (var i = 0; i < menu.length; i++) { if (menu[i].items) { %>
                     <li class="nav-item dropdown">
-                        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                        <a id="id-toggle-<%- i %>" href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
                             <i class="kf kf-<%- menu[i].icon %>"></i><span><%- menu[i].text %>&nbsp;<span class="caret"></span></span>
                         </a>
-                        <div class="dropdown-menu" role="menu" aria-labelledby="// TODO">
+                        <div class="dropdown-menu" role="menu" aria-labelledby="id-toggle-<%- i %>">
                             <% for (var j = 0; j < menu[i].items.length; j++) { %>
                                 <a class="dropdown-item" href="<%- menu[i].items[j].href %>"><%- menu[i].items[j].text %></a>
                             <% } %>
@@ -24,11 +24,11 @@
                     <li class="nav-item"><a class="nav-link" href="<%- menu[i].href %>"><i class="kf kf-<%- menu[i].icon %>"></i><span><%- menu[i].text %></span></a></li>
                 <% } } %>
             </ul>
-            <form class="form-inline mt-2 mt-md-0" role="form">
-                <!--div class="form-group has-feedback"><input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search"-->
-                <input id="navbar-search-input" type="search" class="k-textbox" placeholder="<%- __('header.navbar.search.placeholder') %>">
-                <span class="glyphicon glyphicon-search form-control-feedback"></span>
-                <!--span class="k-textbox k-space-right"><input type="search" value="Input with icon right" /><a href="#" class="k-icon k-i-search">&nbsp;</a></span-->
+            <form class="form-inline mx-0 ml-md-4" role="form">
+                <span class="k-textbox k-space-right">
+                    <input type="search" placeholder="<%- __('header.navbar.search.placeholder') %>">
+                    <a href="#" class="k-icon k-i-search">&nbsp;</a>
+                </span>
             </form>
         </div>
     </nav>

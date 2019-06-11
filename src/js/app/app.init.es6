@@ -139,3 +139,22 @@ import config from './app.config.jsx';
         }
     }
 })();
+
+/**
+ * Load our service worker
+ */
+if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+        navigator.serviceWorker.register(
+            config.uris.webapp.public.replace('{0}', 'sw.js')
+        );
+        /*
+        .then(registration => {
+            console.log('SW registered: ', registration);
+        })
+        .catch(registrationError => {
+            console.log('SW registration failed: ', registrationError);
+        });
+         */
+    });
+}

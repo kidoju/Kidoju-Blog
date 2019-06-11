@@ -77,6 +77,7 @@ COPY ..\..\Kidoju\Kidoju.Webapp\webapp\views\logo.ejs .\webapp\views /Y
 ATTRIB +R .\webapp\*.* /S
 ATTRIB -R .\webapp\cache\*.*
 ATTRIB -R .\webapp\config\*.json
+ATTRIB -R .\webapp\public\sw.js
 ATTRIB -R .\webapp\public\build\*.*
 
 REM ------------------------------------------------------------

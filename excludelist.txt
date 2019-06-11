@@ -16,3 +16,4 @@
 \public\apple-touch-icon-180x180.png
 \public\apple-touch-icon-192x192.png
 \public\favicon.ico
+\public\sw.js

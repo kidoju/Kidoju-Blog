@@ -103,7 +103,6 @@ const workboxWebpackPlugin = new workboxPlugin.GenerateSW({
     manifestTransforms: [
         originalManifest => {
             const manifest = originalManifest.concat([
-                // TODO add google fonts
                 {
                     // url: 'https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js'
                     url:
@@ -118,6 +117,7 @@ const workboxWebpackPlugin = new workboxPlugin.GenerateSW({
     offlineGoogleAnalytics: true,
     runtimeCaching: [
         // See https://gist.github.com/addyosmani/0e1cfeeccad94edc2f0985a15adefe54
+        // See also https://developers.google.com/web/tools/workbox/guides/common-recipes
         {
             // Our cdn assets
             urlPattern: new RegExp(`^${config.get('uris:cdn:root')}`),
@@ -130,7 +130,8 @@ const workboxWebpackPlugin = new workboxPlugin.GenerateSW({
                 },
                 expiration: {
                     maxEntries: 100,
-                    maxAgeSeconds: 30 * 24 * 60 * 60
+                    maxAgeSeconds: 30 * 24 * 60 * 60,
+                    purgeOnQuotaError: true
                 }
             }
         },
@@ -146,6 +147,32 @@ const workboxWebpackPlugin = new workboxPlugin.GenerateSW({
             options: {
                 // https://developers.google.com/web/tools/workbox/reference-docs/latest/workbox.strategies.StaleWhileRevalidate
                 cacheName: `${pkg.name.replace('.', '-')}-runtime-content`
+            }
+        },
+        // Cache Google fonts
+        // https://developers.google.com/web/tools/workbox/guides/common-recipes#google_fonts
+        {
+            urlPattern: /^https:\/\/fonts\.googleapis\.com/,
+            handler: 'StaleWhileRevalidate',
+            options: {
+                // https://developers.google.com/web/tools/workbox/reference-docs/latest/workbox.strategies.StaleWhileRevalidate
+                cacheName: `google-fonts-stylesheets`
+            }
+        },
+        {
+            urlPattern: /^https:\/\/fonts\.googleapis\.com/,
+            handler: 'CacheFirst',
+            options: {
+                // https://developers.google.com/web/tools/workbox/reference-docs/latest/workbox.strategies.StaleWhileRevalidate
+                cacheName: `google-fonts-webfonts`,
+                cacheableResponse: {
+                    statuses: [0, 200]
+                },
+                expiration: {
+                    maxEntries: 20,
+                    maxAgeSeconds: 365 * 24 * 60 * 60,
+                    purgeOnQuotaError: true
+                }
             }
         }
     ],

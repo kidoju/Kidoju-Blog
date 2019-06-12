@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "http://localhost:3000/support/build/precache-manifest.2dea03ccc5a3a3b5062518685af3452d.js"
+  "https://www.kidoju.com/support/build/precache-manifest.fa2f3895831c6d3a1e2be766ffadab53.js"
 );
 
 workbox.core.setCacheNameDetails({prefix: "Kidoju-Blog"});
@@ -38,7 +38,7 @@ workbox.precaching.precacheAndRoute(self.__precacheManifest, {});
 workbox.precaching.cleanupOutdatedCaches();
 
 workbox.routing.registerRoute(/^https:\/\/cdn.kidoju.com/, new workbox.strategies.CacheFirst({ "cacheName":"Kidoju-Blog-runtime-assets", plugins: [new workbox.cacheableResponse.Plugin({ statuses: [ 0, 200 ] }), new workbox.expiration.Plugin({ maxEntries: 100, maxAgeSeconds: 2592000, purgeOnQuotaError: true })] }), 'GET');
-workbox.routing.registerRoute(/^http:\/\/localhost:3000\/support(\/?$|\/[a-z]{2}($|\/))/, new workbox.strategies.StaleWhileRevalidate({ "cacheName":"Kidoju-Blog-runtime-content", plugins: [] }), 'GET');
+workbox.routing.registerRoute(/^https:\/\/www.kidoju.com\/support(\/?$|\/[a-z]{2}($|\/))/, new workbox.strategies.StaleWhileRevalidate({ "cacheName":"Kidoju-Blog-runtime-content", plugins: [] }), 'GET');
 workbox.routing.registerRoute(/^https:\/\/fonts\.googleapis\.com/, new workbox.strategies.StaleWhileRevalidate({ "cacheName":"google-fonts-stylesheets", plugins: [] }), 'GET');
 workbox.routing.registerRoute(/^https:\/\/fonts\.googleapis\.com/, new workbox.strategies.CacheFirst({ "cacheName":"google-fonts-webfonts", plugins: [new workbox.cacheableResponse.Plugin({ statuses: [ 0, 200 ] }), new workbox.expiration.Plugin({ maxEntries: 20, maxAgeSeconds: 31536000, purgeOnQuotaError: true })] }), 'GET');
 

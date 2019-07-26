@@ -14,43 +14,43 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "https://www.kidoju.com/support/build/app-culture-fr-es6.bundle.js?v=0.3.8"
   },
   {
-    "revision": "252a4df5dad0067e190d",
+    "revision": "400ce1c38cc385058430",
     "url": "https://www.kidoju.com/support/build/app.theme.black.bundle.js?v=0.3.8"
   },
   {
-    "revision": "dddace27230df148497d",
+    "revision": "8e08de7a6e991e015190",
     "url": "https://www.kidoju.com/support/build/app.theme.bootstrap.bundle.js?v=0.3.8"
   },
   {
-    "revision": "0a338c22c2bd40721de5",
+    "revision": "c1e96b66272a2eb8a883",
     "url": "https://www.kidoju.com/support/build/app.theme.flat.bundle.js?v=0.3.8"
   },
   {
-    "revision": "895b40382bd089c080b5",
+    "revision": "0916f09cdce74b1c8105",
     "url": "https://www.kidoju.com/support/build/app.theme.highcontrast.bundle.js?v=0.3.8"
   },
   {
-    "revision": "25fc8ad2da8f232b8572",
+    "revision": "b37e7bf04d673375227d",
     "url": "https://www.kidoju.com/support/build/app.theme.indigo.bundle.js?v=0.3.8"
   },
   {
-    "revision": "9b842f290ced7cad0610",
+    "revision": "cd8e092420390dfc0936",
     "url": "https://www.kidoju.com/support/build/app.theme.memba.bundle.js?v=0.3.8"
   },
   {
-    "revision": "776298dd130c1b9676e3",
+    "revision": "729d4c1ccec2950ec4ed",
     "url": "https://www.kidoju.com/support/build/app.theme.nordic.bundle.js?v=0.3.8"
   },
   {
-    "revision": "1093417f96b07ccabb68",
+    "revision": "fe0546d2ae88471d2933",
     "url": "https://www.kidoju.com/support/build/app.theme.turquoise.bundle.js?v=0.3.8"
   },
   {
-    "revision": "0c627a25b2aa61c7437f",
+    "revision": "fd51a444d09ba8ba1047",
     "url": "https://www.kidoju.com/support/build/app.theme.urban.bundle.js?v=0.3.8"
   },
   {
-    "revision": "b8c00e1a7210a276c683",
+    "revision": "766637ea916b8724c646",
     "url": "https://www.kidoju.com/support/build/app.theme.vintage.bundle.js?v=0.3.8"
   },
   {
@@ -60,7 +60,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "https://www.kidoju.com/support/build/cdfd82cd7caa66cfe027d1702b434bd9.png"
   },
   {
-    "revision": "7c5d6cdd0dcaf8025f02",
+    "revision": "d3dac96d1efeabfec1d2",
     "url": "https://www.kidoju.com/support/build/common.bundle.js?v=0.3.8"
   },
   {

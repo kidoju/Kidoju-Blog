@@ -24,7 +24,38 @@ let capabilities = [
         // TODO Consider wdio-phantomjs-service (waiting for @wdio/phantomjs-service)
     }
 ];
-let seleniumArgs = {};
+// let seleniumArgs = {};
+let seleniumArgs = {
+    version: '3.141.5',
+    drivers: {
+        chrome: {
+            // version: '2.43'
+            // version: '2.44'
+            // version: '2.45'
+            // version: '2.46'
+            // version: '74.0.3729.6'
+            // version: '75.0.3770.140'
+            // version: '76.0.3809.126'
+            version: '77.0.3865.40'
+        }
+    }
+};
+// @see https://chromedriver.chromium.org/downloads
+const seleniumInstallArgs = {
+    version: '3.141.5',
+    drivers: {
+        chrome: {
+            // version: '2.43'
+            // version: '2.44'
+            // version: '2.45'
+            // version: '2.46'
+            // version: '74.0.3729.6'
+            // version: '75.0.3770.140'
+            // version: '76.0.3809.126'
+            version: '77.0.3865.40'
+        }
+    }
+};
 
 /** **************************************************************
  * In our Windows environment
@@ -257,6 +288,7 @@ module.exports.config = {
     // @see http://webdriver.io/guide/services/selenium-standalone.html
     // @see https://www.npmjs.com/package/selenium-standalone
     seleniumArgs,
+    seleniumInstallArgs,
     //
     // Framework you want to run your specs with.
     // The following are supported: Mocha, Jasmine, and Cucumber

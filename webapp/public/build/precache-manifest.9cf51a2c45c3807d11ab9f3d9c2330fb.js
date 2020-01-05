@@ -14,43 +14,43 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "https://www.kidoju.com/support/build/app-culture-fr-es6.bundle.js?v=0.3.8"
   },
   {
-    "revision": "b7bc55a444187d4479b5",
+    "revision": "1a822f173074b3d55c50",
     "url": "https://www.kidoju.com/support/build/app.theme.black.bundle.js?v=0.3.8"
   },
   {
-    "revision": "f69b2a5a30714ca6262c",
+    "revision": "e13be4c0e801c616e897",
     "url": "https://www.kidoju.com/support/build/app.theme.bootstrap.bundle.js?v=0.3.8"
   },
   {
-    "revision": "7812351409d9e5886852",
+    "revision": "9931c9adbf96e41a389f",
     "url": "https://www.kidoju.com/support/build/app.theme.flat.bundle.js?v=0.3.8"
   },
   {
-    "revision": "282d8030516455edfa37",
+    "revision": "1ba060a86760c1dc4533",
     "url": "https://www.kidoju.com/support/build/app.theme.highcontrast.bundle.js?v=0.3.8"
   },
   {
-    "revision": "893798b7466d8404fede",
+    "revision": "ea35a6fc7013398e6c78",
     "url": "https://www.kidoju.com/support/build/app.theme.indigo.bundle.js?v=0.3.8"
   },
   {
-    "revision": "390791e175d37693eb76",
+    "revision": "66a6c25a8b55ccea8086",
     "url": "https://www.kidoju.com/support/build/app.theme.memba.bundle.js?v=0.3.8"
   },
   {
-    "revision": "ceebb6fa4e7dc8d5bee5",
+    "revision": "aaa32bbe95376797c355",
     "url": "https://www.kidoju.com/support/build/app.theme.nordic.bundle.js?v=0.3.8"
   },
   {
-    "revision": "4ba35c9bf8c38db97655",
+    "revision": "7747174bb60131872800",
     "url": "https://www.kidoju.com/support/build/app.theme.turquoise.bundle.js?v=0.3.8"
   },
   {
-    "revision": "4938ccc6bd00a2056648",
+    "revision": "588a93f1d9ac18e0db4e",
     "url": "https://www.kidoju.com/support/build/app.theme.urban.bundle.js?v=0.3.8"
   },
   {
-    "revision": "d10fbfbc682bae82ed3b",
+    "revision": "416686e1bc1095561d08",
     "url": "https://www.kidoju.com/support/build/app.theme.vintage.bundle.js?v=0.3.8"
   },
   {
@@ -60,37 +60,37 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "https://www.kidoju.com/support/build/cdfd82cd7caa66cfe027d1702b434bd9.png"
   },
   {
-    "revision": "8d44a229c54e4eb4bffe",
+    "revision": "cb2d914996ae11a466d6",
     "url": "https://www.kidoju.com/support/build/common.bundle.js?v=0.3.8"
   },
   {
     "url": "https://www.kidoju.com/support/build/e811d21d46e69ff03a92761dd0b9f47e.woff"
   },
   {
-    "revision": "56ad0379b83716d6c601",
+    "revision": "7a978af8276e24e300aa",
     "url": "https://www.kidoju.com/support/build/error.bundle.js?v=0.3.8"
   },
   {
     "url": "https://www.kidoju.com/support/build/f0e822cb280b38eaa00d74d242a837f9.ttf"
   },
   {
-    "revision": "fffe5a316cc7cadbf97b",
+    "revision": "64f2bb270f30dace4c9c",
     "url": "https://www.kidoju.com/support/build/home.bundle.js?v=0.3.8"
   },
   {
-    "revision": "39556b7b5e5dbd36479c",
+    "revision": "7a2040d771fb1eb4390f",
     "url": "https://www.kidoju.com/support/build/init.bundle.js?v=0.3.8"
   },
   {
-    "revision": "3135cb5283d6eece4aba",
+    "revision": "1488f0bca5a88bcacd3d",
     "url": "https://www.kidoju.com/support/build/page.bundle.js?v=0.3.8"
   },
   {
-    "revision": "70219d529b3307330ad9",
+    "revision": "43a5bfeea7b6daa96aa0",
     "url": "https://www.kidoju.com/support/build/post.bundle.js?v=0.3.8"
   },
   {
-    "revision": "98e4f8f7c5e3a6b05ea3",
+    "revision": "f85a8c256bcc33dd6334",
     "url": "https://www.kidoju.com/support/build/search.bundle.js?v=0.3.8"
   }
 ]);

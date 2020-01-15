@@ -120,7 +120,7 @@
     "less-plugin-clean-css": "^1.5.1",
     "loader-utils": "^1.2.3",
     "markdown-it": "^10.0.0",
-    "mocha": "^7.0.0",
+    "mocha": "^6.2.2",
     "nyc": "^15.0.0",
     "phantomjs-prebuilt": "^2.1.16",
     "postcss-loader": "^3.0.0",

@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "https://www.kidoju.com/support/build/precache-manifest.cdbd1aa123c27e9c5459a4a721504b4c.js"
+  "https://www.kidoju.com/support/build/precache-manifest.c0bff0ee2d028d46769fcb735ac4a595.js"
 );
 
 workbox.core.setCacheNameDetails({prefix: "Kidoju-Blog"});

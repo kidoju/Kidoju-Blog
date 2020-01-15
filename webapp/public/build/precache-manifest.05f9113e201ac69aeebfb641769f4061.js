@@ -1,20 +1,16 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "51e9f1c186500e9f9ce3303bd0dc870a",
-    "url": "https://www.kidoju.com/support/build/../sw.js"
-  },
-  {
     "url": "https://www.kidoju.com/support/build/06c0e4eee47149717c20a979ffb49b61.eot"
   },
   {
     "url": "https://www.kidoju.com/support/build/47120e35b461638cf2038d63dece4402.jpg"
   },
   {
-    "revision": "a4c0455e617cb3eaa66f",
+    "revision": "8b40cf9b0efd4e924a16",
     "url": "https://www.kidoju.com/support/build/app-culture-en-es6.bundle.js?v=0.3.8"
   },
   {
-    "revision": "758bb164bb6787c86d05",
+    "revision": "49035e2080a2fbdb24a1",
     "url": "https://www.kidoju.com/support/build/app-culture-fr-es6.bundle.js?v=0.3.8"
   },
   {
@@ -64,7 +60,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "https://www.kidoju.com/support/build/cdfd82cd7caa66cfe027d1702b434bd9.png"
   },
   {
-    "revision": "39466433edaa509664c2",
+    "revision": "2be597d6b09ecfab4715",
     "url": "https://www.kidoju.com/support/build/common.bundle.js?v=0.3.8"
   },
   {
@@ -86,15 +82,12 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "https://www.kidoju.com/support/build/init.bundle.js?v=0.3.8"
   },
   {
-    "revision": "252ff38c73508f215b81",
+    "revision": "b0a072d98b402baf9064",
     "url": "https://www.kidoju.com/support/build/page.bundle.js?v=0.3.8"
   },
   {
     "revision": "13173aabf4d7f43da691",
     "url": "https://www.kidoju.com/support/build/post.bundle.js?v=0.3.8"
-  },
-  {
-    "url": "https://www.kidoju.com/support/build/precache-manifest.613459cb942cca6d94ab4b0be7284908.js"
   },
   {
     "revision": "c77c2e12347f734fe2d3",

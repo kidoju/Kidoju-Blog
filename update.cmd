@@ -78,6 +78,7 @@ ATTRIB +R .\webapp\*.* /S
 ATTRIB -R .\webapp\cache\*.*
 ATTRIB -R .\webapp\config\*.json
 ATTRIB -R .\webapp\public\sw.js
+ATTRIB -R .\webapp\public\workbox-*.js
 ATTRIB -R .\webapp\public\build\*.*
 
 REM ------------------------------------------------------------

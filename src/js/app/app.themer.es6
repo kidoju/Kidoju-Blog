@@ -4,7 +4,7 @@
  */
 
 // https://github.com/benmosher/eslint-plugin-import/issues/1097
-// eslint-disable-next-line import/extensions, import/no-unresolved
+// eslint-disable-next-line import/extensions, import/no-extraneous-dependencies, import/no-unresolved
 import $ from 'jquery';
 import 'kendo.core';
 import assert from '../common/window.assert.es6';
@@ -17,40 +17,7 @@ const logger = new Logger('app.themer');
 const THEME = 'theme';
 // This list list the web theme to load for a mobile or web theme
 // Attention! this theme should be imported in the corresponding app.theme.* file
-/*
 const THEMES = {
-    'android-dark': 'black', // <------- mobile only
-    'android-light': 'fiori', // <------- mobile only
-    black: 'black',
-    blackberry: 'black', // <------- mobile only
-    blueopal: 'blueopal',
-    bootstrap: 'bootstrap',
-    default: 'default',
-    // 'default-v2': 'default-v2',
-    fiori: 'fiori',
-    flat: 'flat',
-    highcontrast: 'highcontrast',
-    ios: 'bootstrap', // <------- mobile only
-    ios7: 'bootstrap', // <------- mobile only
-    material: 'material',
-    'material-dark': 'materialblack', // <------- mobile only
-    'material-light': 'material', // <------- mobile only
-    materialblack: 'materialblack',
-    meego: 'bootstrap', // <------- mobile only
-    metro: 'metro',
-    metroblack: 'metroblack',
-    moonlight: 'moonlight',
-    nova: 'nova',
-    office365: 'office365',
-    silver: 'silver',
-    uniform: 'uniform',
-    'wp-dark': 'metroblack', // <------- mobile only
-    'wp-light': 'metro' // <------- mobile only
-};
-const DEFAULT = 'flat';
-*/
-const THEMES = {
-    // TODO Review to include locales + embedded border color
     black: 'black',
     bootstrap: 'bootstrap',
     flat: 'flat',
@@ -62,7 +29,7 @@ const THEMES = {
     urban: 'urban',
     vintage: 'vintage',
 };
-const DEFAULT = 'bootstrap';
+const DEFAULT = 'flat';
 
 let localStorage; // = window.localStorage;
 // An exception is catched when localStorage is explicitly disabled
@@ -76,7 +43,7 @@ const matches = /[?|&]theme=([^&]+)/.exec(window.location.search);
 
 /**
  * Themer
- * // TODO COnsider making this a class
+ * // TODO Consider making this a class
  */
 const themer = {
     /**
@@ -84,19 +51,34 @@ const themer = {
      * @param theme
      */
     load(theme) {
-        assert.type(
+        assert.typeOrUndef(
             CONSTANTS.STRING,
             theme,
-            assert.format(assert.messages.type.default, theme, CONSTANTS.STRING)
+            assert.format(
+                assert.messages.typeOrUndef.default,
+                theme,
+                CONSTANTS.STRING
+            )
         );
         const dfd = $.Deferred();
-        const oldTheme = localStorage && localStorage.getItem(THEME);
-        let loader;
-        if ($.type(THEMES[theme]) === CONSTANTS.UNDEFINED) {
-            // eslint-disable-next-line no-param-reassign
-            theme = DEFAULT;
+        let oldTheme = localStorage && localStorage.getItem(THEME);
+        let newTheme;
+        if (
+            $.type(oldTheme) !== CONSTANTS.STRING ||
+            $.type(THEMES[oldTheme]) === CONSTANTS.UNDEFINED
+        ) {
+            oldTheme = undefined;
         }
-        if ($.type(oldTheme) === CONSTANTS.STRING && oldTheme !== theme) {
+        if (
+            $.type(theme) !== CONSTANTS.STRING ||
+            $.type(THEMES[theme]) === CONSTANTS.UNDEFINED
+        ) {
+            newTheme = oldTheme || DEFAULT;
+        } else {
+            newTheme = theme;
+        }
+        let loader;
+        if ($.type(theme) === CONSTANTS.STRING && oldTheme !== newTheme) {
             // See https://github.com/webpack/style-loader/issues/48
             // See https://github.com/webpack/webpack/issues/924
             // See https://github.com/webpack/webpack/issues/993
@@ -107,12 +89,12 @@ const themer = {
             });
         }
         // eslint-disable-next-line global-require, import/no-dynamic-require
-        loader = require(`../../styles/themes/app.theme.${theme}.scss`);
+        loader = require(`../../styles/themes/app.theme.${newTheme}.scss`);
         loader((style) => {
             style.default.use(); // Use default with style-loder@2
             if (localStorage && !$.isArray(matches)) {
                 try {
-                    localStorage.setItem(THEME, theme);
+                    localStorage.setItem(THEME, newTheme);
                 } catch (exception) {
                     // A QuotaExceededError in raised in private browsing, which we do not care about
                     // @see https://github.com/jlchereau/Kidoju-Webapp/issues/181
@@ -132,14 +114,13 @@ const themer = {
             //     .delay(400)
             //     .fadeIn()
             //     .fadeOut();
-            // The mobile application theme is set in app.mobile.js when initializing kendo.mobile.Application
             $(document.documentElement)
                 .removeClass(`k-${THEMES[oldTheme]}`)
-                .addClass(`k-${THEMES[theme]}`); // Web Application
-            themer.updateCharts(THEMES[theme]);
-            themer.updateQRCodes(THEMES[theme]);
+                .addClass(`k-${THEMES[newTheme]}`); // Web Application
+            themer.updateCharts(THEMES[newTheme]);
+            themer.updateQRCodes(THEMES[newTheme]);
             logger.debug({
-                message: `theme changed to ${theme}`,
+                message: `theme changed from ${oldTheme} to ${newTheme}`,
                 method: 'load',
             });
             dfd.resolve();
@@ -257,6 +238,7 @@ const themer = {
     },
 };
 
+// TODO Remove -> use initializers
 // get theme from match or from localstorage ur use DEFAULT
 const theme = themer.name();
 // load theme

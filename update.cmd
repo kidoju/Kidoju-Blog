@@ -95,7 +95,15 @@ ATTRIB -R .\build.*
 COPY ..\..\Memba\Memba.Blog\build.* .\ /Y
 ATTRIB +R .\build.*
 
-REM TODO Coverage
+REM Mocha with coverage
+ATTRIB -R .\coverage.cmd
+COPY ..\..\Memba\Memba.Blog\coverage.cmd .\ /Y
+ATTRIB +R .\coverage.cmd
+
+REM Karma with coverage
+ATTRIB -R .\coverage.con*
+COPY ..\..\Memba\Memba.Blog\coverage.con* .\ /Y
+ATTRIB +R .\coverage.con*
 
 REM Dockerfile
 ATTRIB -R .\Dockerfile

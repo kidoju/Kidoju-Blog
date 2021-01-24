@@ -4,7 +4,7 @@
  */
 
 // https://github.com/benmosher/eslint-plugin-import/issues/1097
-// eslint-disable-next-line import/extensions, import/no-extraneous-dependencies, import/no-unresolved
+// eslint-disable-next-line import/extensions, import/no-unresolved
 import $ from 'jquery';
 import 'kendo.core';
 import assert from '../common/window.assert.es6';
@@ -17,6 +17,38 @@ const logger = new Logger('app.themer');
 const THEME = 'theme';
 // This list list the web theme to load for a mobile or web theme
 // Attention! this theme should be imported in the corresponding app.theme.* file
+/*
+const THEMES = {
+    'android-dark': 'black', // <------- mobile only
+    'android-light': 'fiori', // <------- mobile only
+    black: 'black',
+    blackberry: 'black', // <------- mobile only
+    blueopal: 'blueopal',
+    bootstrap: 'bootstrap',
+    default: 'default',
+    // 'default-v2': 'default-v2',
+    fiori: 'fiori',
+    flat: 'flat',
+    highcontrast: 'highcontrast',
+    ios: 'bootstrap', // <------- mobile only
+    ios7: 'bootstrap', // <------- mobile only
+    material: 'material',
+    'material-dark': 'materialblack', // <------- mobile only
+    'material-light': 'material', // <------- mobile only
+    materialblack: 'materialblack',
+    meego: 'bootstrap', // <------- mobile only
+    metro: 'metro',
+    metroblack: 'metroblack',
+    moonlight: 'moonlight',
+    nova: 'nova',
+    office365: 'office365',
+    silver: 'silver',
+    uniform: 'uniform',
+    'wp-dark': 'metroblack', // <------- mobile only
+    'wp-light': 'metro' // <------- mobile only
+};
+const DEFAULT = 'flat';
+*/
 const THEMES = {
     black: 'black',
     bootstrap: 'bootstrap',
@@ -102,8 +134,7 @@ const themer = {
                     if (
                         !window.DOMException ||
                         !(exception instanceof window.DOMException) ||
-                        exception.code !==
-                            window.DOMException.QUOTA_EXCEEDED_ERR
+                        exception.code !== window.DOMException.QUOTA_EXCEEDED_ERR
                     ) {
                         throw exception;
                     }

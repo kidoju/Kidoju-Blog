@@ -110,11 +110,6 @@ ATTRIB -R .\Dockerfile
 COPY ..\..\Memba\Memba.Blog\Dockerfile .\ /Y
 ATTRIB +R .\Dockerfile
 
-REM gruntfile.js
-ATTRIB -R .\gruntfile.js
-COPY ..\..\Memba\Memba.Blog\gruntfile.js .\ /Y
-ATTRIB +R .\gruntfile.js
-
 REM LICENSE
 ATTRIB -R .\LICENSE-GPLv3
 COPY ..\..\Memba\Memba.Blog\LICENSE-GPLv3 .\ /Y
